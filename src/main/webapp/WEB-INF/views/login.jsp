@@ -36,6 +36,7 @@
                 </div>
                 <div class="box-body">
                   <p class="text-muted">Please fill the information to continue</p>
+                    <span>${error}</span>
                   <div class="form-group">
                     <input type="email" class="form-control" placeholder="Email" required>
                   </div>
