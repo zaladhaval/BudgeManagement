@@ -28,7 +28,7 @@
     <div id="content-body">
       <div class="padding">
         <div class="row">
-          <div class="col-sm-4" style="position: fixed;  left: 50%; transform: translateX(-50%);">
+          <div class="col-sm-4" style=" left: 50%; transform: translateX(-50%);">
             <form data-plugin="parsley" data-option="{}">
               <div class="box">
                 <div class="box-header">
@@ -36,9 +36,15 @@
                 </div>
                 <div class="box-body">
                   <p class="text-muted">Please fill the information to continue</p>
-                  <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" required>
+                  <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <label>First Name</label>
+                      <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label>Last Name</label>
+                      <input type="text" class="form-control"  required>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label>Email</label>

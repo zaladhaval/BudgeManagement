@@ -27,4 +27,9 @@ public class LoginLib {
 	public String showreg() {
 		return "register";
 	}
+	
+	@GetMapping("/test")
+	public String test() {
+		return "test";
+	}
 }

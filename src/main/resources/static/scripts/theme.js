@@ -84,13 +84,12 @@
       that.find('input[name="bg"][value=dark]').prop('checked', true);
       that.find('input[name="aside"][value=dark]').prop('checked', true);
       that.find('input[name="brand"][value=dark]').prop('checked', true);
-      
       if(theme != app.setting.theme){
-        lazyload.load('resources/assets/css/theme/'+app.setting.theme+'.css').then(function(){
-          lazyload.unload('resources/assets/css/theme/'+theme+'.css');
-          theme = app.setting.theme;
-        });
-      }
+          lazyload.load('resources/assets/css/theme/'+app.setting.theme+'.css').then(function(){
+            lazyload.unload('resources/assets/css/theme/'+theme+'.css');
+            theme = app.setting.theme;
+          });
+        }
     }
 
     // save setting to localstorage
