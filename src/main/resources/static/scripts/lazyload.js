@@ -21,7 +21,6 @@ var lazyload = lazyload || {};
 	 * @returns {*} Promise that will be resolved once the sources has been loaded.
 	 */
 	lazyload.load = function (srcs) {
-		console.log(srcs);
 		srcs = $.isArray(srcs) ? srcs : srcs.split(/\s+/);
 		if(!promise){
 			promise = deferred.promise();
@@ -52,7 +51,7 @@ var lazyload = lazyload || {};
 	var loadScript = function (src) {
 		var deferred = $.Deferred();
 		var script = document.createElement('script');
-		script.src = src;
+		script.src = 'resources/'+src;
 		script.onload = function (e) {
 			deferred.resolve(e);
 		};
@@ -76,7 +75,7 @@ var lazyload = lazyload || {};
 		var style = document.createElement('link');
 		style.rel = 'stylesheet';
 		style.type = 'text/css';
-		style.href = href;
+		style.href = 'resources/'+href;
 		style.onload = function (e) {
 			deferred.resolve(e);
 		};

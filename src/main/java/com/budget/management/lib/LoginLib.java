@@ -12,4 +12,9 @@ public class LoginLib {
 	public String showlogin() {
 		return "login";
 	}
+	
+	@GetMapping("/signup")
+	public String showreg() {
+		return "register";
+	}
 }

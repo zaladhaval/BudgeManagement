@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Signin</title>
+  <title>Signup</title>
   <%@ include file="include/style.jsp" %>
 </head>
 <body>
@@ -32,26 +32,38 @@
             <form data-plugin="parsley" data-option="{}">
               <div class="box">
                 <div class="box-header">
-                  <h2 style="text-align: center;">Login</h2>
+                  <h2 style="text-align: center;">Register</h2>
                 </div>
                 <div class="box-body">
                   <p class="text-muted">Please fill the information to continue</p>
                   <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email" required>
+                    <label>Username</label>
+                    <input type="text" class="form-control" required>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" placeholder="password" required>
+                    <label>Email</label>
+                    <input type="email" class="form-control" required>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <label>Enter password</label>
+                      <input type="password" class="form-control" required id="pwd">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label>Confirm password</label>
+                      <input type="password" class="form-control" data-parsley-equalto="#pwd" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" placeholder="XXX XXXX XXX" required>
                   </div>
 
                   <div class="text-right">
                     <button type="submit" class="btn primary">Submit</button>
                   </div>
-                  <div class="my-4">
-                    <a href="forgot-password.html" class="text-primary _600">Forgot password?</a>
-                  </div>
-                  <div>
-                    Do not have an account?
-                    <a href="/signup" class="text-primary _600">Sign up</a>
+                  <div class="py-4 text-center">
+                    <div>Already have an account? <a href="/" class="text-primary _600">Sign in</a></div>
                   </div>
                 </div>
               </div>
@@ -61,7 +73,6 @@
       </div>
     </div>
   </div>
-  <!-- build:js scripts/app.min.js -->
   <%@ include file="include/script.jsp" %>
 </body>
 </html>
