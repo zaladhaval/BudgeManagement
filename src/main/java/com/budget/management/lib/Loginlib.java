@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("")
-public class LoginLib {
+public class Loginlib {
 
 	String error = null;
 
