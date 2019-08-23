@@ -28,6 +28,12 @@
 					<span class="title">uploadDocument</span>
 					</a>
 				</li>
+				<li class="start expenses">
+					<a href="/expenses">
+					<i class=" icon-wallet"></i>
+					<span class="title">Add expenses</span>
+					</a>
+				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
 		</div>

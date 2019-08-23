@@ -18,7 +18,7 @@
 <!-- BEGIN LOGO -->
 <div class="logo">
 	<a href="index.html">
-	<img src="resources/assets/admin/layout/img/logo-big.png" alt=""/>
+	<img src="resources/assets/admin/layout4/img/logo11.png" alt="logo" class="logo-default" style="height: 50px; padding-bottom: 10px; margin-top: 22px; width: 160px;"/>
 	</a>
 </div>
 <!-- END LOGO -->
@@ -52,32 +52,9 @@
 			</div>
 		</div>
 		<div class="form-actions">
-			<label class="checkbox">
-			<input type="checkbox" name="remember" value="1"/> Remember me </label>
 			<button type="submit" class="btn blue pull-right">
 			Login <i class="m-icon-swapright m-icon-white"></i>
 			</button>
-		</div>
-		<div class="login-options">
-			<h4>Or login with</h4>
-			<ul class="social-icons">
-				<li>
-					<a class="facebook" data-original-title="facebook" href="javascript:;">
-					</a>
-				</li>
-				<li>
-					<a class="twitter" data-original-title="Twitter" href="javascript:;">
-					</a>
-				</li>
-				<li>
-					<a class="googleplus" data-original-title="Goole Plus" href="javascript:;">
-					</a>
-				</li>
-				<li>
-					<a class="linkedin" data-original-title="Linkedin" href="javascript:;">
-					</a>
-				</li>
-			</ul>
 		</div>
 		<div class="forget-password">
 			<h4>Forgot your password ?</h4>
@@ -438,11 +415,7 @@
 	<!-- END REGISTRATION FORM -->
 </div>
 <!-- END LOGIN -->
-<!-- BEGIN COPYRIGHT -->
-<div class="copyright">
-	 2014 &copy; Metronic - Admin Dashboard Template.
-</div>
-<!-- END COPYRIGHT -->
+
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <%@ include file="include/script.jsp" %>
 <script>

@@ -59,3 +59,6 @@
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-markdown/lib/markdown.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+
+<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="resources/assets/global/plugins/ckeditor/ckeditor.js"></script>

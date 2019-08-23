@@ -37,6 +37,9 @@ var FormValidation = function () {
                         required: true,
                         number: true
                     },
+                    description: {
+                        required: true
+                    },
                     digits: {
                         required: true,
                         digits: true
@@ -199,11 +202,18 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
+                    amount: {
+                       number: true,
+                        required: true
+                    },
                     email: {
                         required: true,
                         email: true
                     },  
                     options1: {
+                        required: true
+                    },
+                    description: {
                         required: true
                     },
                     options2: {

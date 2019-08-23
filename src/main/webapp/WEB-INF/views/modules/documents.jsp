@@ -1,14 +1,16 @@
+<%@page import="java.util.Properties"%>
 <div class="row">
 				<div class="col-md-12">
 					<!-- BEGIN EXAMPLE TABLE PORTLET-->
 					<div class="portlet box grey-cascade">
 						<div class="portlet-title">
 							<div class="caption">
-								Document List
+								<i class="fa fa-globe"></i>Managed Table
 							</div>
 							
 						</div>
 						<div class="portlet-body">
+						
 							<table class="table table-striped table-bordered table-hover" id="sample_1">
 							<thead>
 							<tr>
@@ -590,3 +592,5 @@
 					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
 			</div>
+			
+			
