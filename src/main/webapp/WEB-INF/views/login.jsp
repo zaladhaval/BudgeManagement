@@ -7,7 +7,7 @@
 <!-- BEGIN HEAD -->
 <head>
 
-<title>Metronic | Login Options - Login Form 4</title>
+<title>Login</title>
 
 <%@ include file="include/style.jsp" %>
 <link rel="shortcut icon" href="favicon.ico"/>
@@ -29,12 +29,13 @@
 <!-- BEGIN LOGIN -->
 <div class="content" style=" background-color: inherit">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="index.html" method="post">
+	<form class="login-form" action="/auth/authenticate" method="post">
 		<h3 class="form-title">Login to your account</h3>
 		<div class="alert alert-danger display-hide">
 			<button class="close" data-close="alert"></button>
 			<span>
 			Enter any username and password. </span>
+			<span>${error}</span>
 		</div>
 		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
@@ -94,7 +95,7 @@
 	</form>
 	<!-- END FORGOT PASSWORD FORM -->
 	<!-- BEGIN REGISTRATION FORM -->
-	<form class="register-form" action="index.html" method="post">
+	<form class="register-form" >
 		<h3>Sign Up</h3>
 		<p>
 			 Enter your personal details below:
@@ -103,7 +104,7 @@
 			<label class="control-label visible-ie8 visible-ie9">Full Name</label>
 			<div class="input-icon">
 				<i class="fa fa-font"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" id="fullname"/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -111,21 +112,23 @@
 			<label class="control-label visible-ie8 visible-ie9">Email</label>
 			<div class="input-icon">
 				<i class="fa fa-envelope"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email"/>
+				<input class="form-control placeholder-no-fix"  type="text" placeholder="Email" name="email" id="email"/>
 			</div>
+			<span id="email-unique" class="help-block" style="color: red;"></span>
 		</div>
 		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Address</label>
+			<label class="control-label visible-ie8 visible-ie9">Contact</label>
 			<div class="input-icon">
 				<i class="fa fa-check"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="Contact" name="contact" id="contact"/>
+				<span id="contact-unique" class="help-block" style="color: red;"></span>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">City/Town</label>
 			<div class="input-icon">
 				<i class="fa fa-location-arrow"></i>
-				<input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city"/>
+				<input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city" id="city"/>
 			</div>
 		</div>
 		<div class="form-group">
@@ -375,14 +378,15 @@
 			<label class="control-label visible-ie8 visible-ie9">Username</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" id="username"/>
 			</div>
+			<span id="username-unique" class="help-block" style="color: red;"></span>
 		</div>
 		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Password</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password"/>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -390,18 +394,8 @@
 			<div class="controls">
 				<div class="input-icon">
 					<i class="fa fa-check"></i>
-					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"/>
+					<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" id="rpassword"/>
 				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<label>
-			<input type="checkbox" name="tnc"/> I agree to the <a href="javascript:;">
-			Terms of Service </a>
-			and <a href="javascript:;">
-			Privacy Policy </a>
-			</label>
-			<div id="register_tnc_error">
 			</div>
 		</div>
 		<div class="form-actions">

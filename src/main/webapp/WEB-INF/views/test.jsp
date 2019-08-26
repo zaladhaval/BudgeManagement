@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title>Metronic | Form Stuff - Form Validation</title>
+<title>Metronic | UI Features - Block UI</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -32,12 +32,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="resources/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
 <link href="resources/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN PAGE LEVEL STYLES -->
-<link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/select2/select2.css"/>
-<link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
-<link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
-<link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
-<!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
 <link href="resources/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="resources/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
@@ -574,11 +568,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="active open">
 					<a href="javascript:;">
 					<i class="icon-diamond"></i>
 					<span class="title">UI Features</span>
-					<span class="arrow "></span>
+					<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
@@ -613,7 +607,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<a href="ui_page_progress_style_1.html">
 							<span class="badge badge-warning">new</span>Page Progress Bar - Style 1</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="ui_blockui.html">
 							Block UI</a>
 						</li>
@@ -721,11 +715,11 @@ License: You must have a valid license purchased only from themeforest(the above
 					</a>
 				</li>
 				<!-- END ANGULARJS LINK -->
-				<li class="active open">
+				<li>
 					<a href="javascript:;">
 					<i class="icon-settings"></i>
 					<span class="title">Form Stuff</span>
-					<span class="arrow open"></span>
+					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
@@ -750,7 +744,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<a href="form_wizard.html">
 							Form Wizard</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="form_validation.html">
 							Form Validation</a>
 						</li>
@@ -1166,7 +1160,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="page-head">
 				<!-- BEGIN PAGE TITLE -->
 				<div class="page-title">
-					<h1>Form Validation <small>form validation</small></h1>
+					<h1>Block UI <small>block ui samples</small></h1>
 				</div>
 				<!-- END PAGE TITLE -->
 				<!-- BEGIN PAGE TOOLBAR -->
@@ -1267,23 +1261,22 @@ License: You must have a valid license purchased only from themeforest(the above
 					<i class="fa fa-circle"></i>
 				</li>
 				<li>
-					<a href="#">Form Stuff</a>
+					<a href="#">UI Features</a>
 					<i class="fa fa-circle"></i>
 				</li>
 				<li>
-					<a href="#">Form Validation</a>
+					<a href="#">Block UI</a>
 				</li>
 			</ul>
 			<!-- END PAGE BREADCRUMB -->
 			<!-- END PAGE HEADER-->
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN VALIDATION STATES-->
-					<div class="portlet box blue">
+				<div class="col-md-6">
+					<div class="portlet blue box">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-gift"></i>Validation States
+								<i class="fa fa-cogs"></i>Portlet Blocking
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse">
@@ -1296,84 +1289,75 @@ License: You must have a valid license purchased only from themeforest(the above
 								</a>
 							</div>
 						</div>
-						<div class="portlet-body form">
-							<!-- BEGIN FORM-->
-							<form action="#" class="form-horizontal">
-								<div class="form-body">
-									<h3 class="form-section">Basic validation States</h3>
-									<div class="form-group has-warning">
-										<label class="control-label col-md-3" for="inputWarning">Input with warning</label>
-										<div class="col-md-4">
-											<input type="text" class="form-control" id="inputWarning"/>
-											<span class="help-block">
-											Something may have gone wrong </span>
-										</div>
-									</div>
-									<div class="form-group has-error">
-										<label class="control-label col-md-3" for="inputError">Input with error</label>
-										<div class="col-md-4">
-											<input type="text" class="form-control" id="inputError"/>
-											<span class="help-block">
-											Please correct the error </span>
-										</div>
-									</div>
-									<div class="form-group has-success">
-										<label class="control-label col-md-3" for="inputSuccess">Input with success</label>
-										<div class="col-md-4">
-											<input type="text" class="form-control" id="inputSuccess"/>
-										</div>
-									</div>
-									<h3 class="form-section">Validation States With Icons</h3>
-									<div class="form-group has-warning">
-										<label class="control-label col-md-3">Input with warning</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa fa-exclamation tooltips" data-original-title="please write a valid email"></i>
-												<input type="text" class="form-control"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group has-error">
-										<label class="control-label col-md-3">Input with error</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa fa-warning tooltips" data-original-title="please write a valid email"></i>
-												<input type="text" class="form-control"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group has-success">
-										<label class="control-label col-md-3">Input with success</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa fa-check tooltips" data-original-title="success input!"></i>
-												<input type="text" class="form-control"/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-actions">
-									<div class="row">
-										<div class="col-md-offset-3 col-md-9">
-											<button type="submit" class="btn green">Submit</button>
-											<button type="button" class="btn default">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</form>
-							<!-- END FORM-->
+						<div class="portlet-body" id="blockui_sample_1_portlet_body">
+							<p>
+								 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+							</p>
+							<p>
+								 Aet accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et.
+							</p>
+							<p>
+								<a href="javascript:;" class="btn blue-madison" id="blockui_sample_1_1">
+								Block Portlet With Default Message </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn red-intense" id="blockui_sample_1_2">
+								Block Portlet With Boxed Message </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn green-haze" id="blockui_sample_1_3">
+								Block Portlet With CSS3 Animation</a>
+							</p>
 						</div>
 					</div>
-					<!-- END VALIDATION STATES-->
+				</div>
+				<div class="col-md-6">
+					<div class="portlet purple box">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-cogs"></i>Page Blocking
+							</div>
+							<div class="tools">
+								<a href="javascript:;" class="collapse">
+								</a>
+								<a href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a href="javascript:;" class="reload">
+								</a>
+								<a href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body">
+							<p>
+								<a href="javascript:;" class="btn green" id="blockui_sample_2_1">
+								Block Page With Default Message </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn yellow" id="blockui_sample_2_2">
+								Block Page With Boxed Message </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn red" id="blockui_sample_2_3">
+								Block Page Without Background Overlay </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn purple" id="blockui_sample_2_4">
+								Block Page with CSS3 Animation </a>
+							</p>
+							<p>
+								 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN VALIDATION STATES-->
-					<div class="portlet box purple">
+				<div class="col-md-6">
+					<div class="portlet yellow box">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-gift"></i>Basic Validation
+								<i class="fa fa-cogs"></i>Element Blocking
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse">
@@ -1386,131 +1370,81 @@ License: You must have a valid license purchased only from themeforest(the above
 								</a>
 							</div>
 						</div>
-						<div class="portlet-body form">
-							<!-- BEGIN FORM-->
-							<form action="#" id="form_sample_1" class="form-horizontal">
-								<div class="form-body">
-									<div class="alert alert-danger display-hide">
-										<button class="close" data-close="alert"></button>
-										You have some form errors. Please check below.
-									</div>
-									<div class="alert alert-success display-hide">
-										<button class="close" data-close="alert"></button>
-										Your form validation is successful!
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Name <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input type="text" name="name" data-required="1" class="form-control"/>
+						<div class="portlet-body">
+							<p>
+								<a class="btn red" data-toggle="modal" href="#basic">
+								Block Modal Content </a>
+							</p>
+							<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+											<h4 class="modal-title">Modal Title</h4>
+										</div>
+										<div class="modal-body">
+											<p>
+												<a href="javascript:;" class="btn blue" id="blockui_sample_3_1_0">
+												Block Whole Modal </a>
+											</p>
+											<p>
+												<a href="javascript:;" class="btn green" id="blockui_sample_3_1">
+												Block Below Element </a>
+												<a href="javascript:;" class="btn default" id="blockui_sample_3_1_1">
+												Unblock Below Element </a>
+											</p>
+											<div id="blockui_sample_3_1_element">
+												<p>
+													 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+												</p>
+												<p>
+													 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+												</p>
+												<p>
+													 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+												</p>
+												<p>
+													 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+												</p>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn default" data-dismiss="modal">Close</button>
+											<button type="button" class="btn blue">Save changes</button>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Email <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input name="email" type="text" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">URL <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input name="url" type="text" class="form-control"/>
-											<span class="help-block">
-											e.g: http://www.demo.com or http://demo.com </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Number <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input name="number" type="text" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Digits <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input name="digits" type="text" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Credit Card <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input name="creditcard" type="text" class="form-control"/>
-											<span class="help-block">
-											e.g: 5500 0000 0000 0004 </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Occupation&nbsp;&nbsp;</label>
-										<div class="col-md-4">
-											<input name="occupation" type="text" class="form-control"/>
-											<span class="help-block">
-											optional field </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Select <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<select class="form-control" name="select">
-												<option value="">Select...</option>
-												<option value="Category 1">Category 1</option>
-												<option value="Category 2">Category 2</option>
-												<option value="Category 3">Category 5</option>
-												<option value="Category 4">Category 4</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Multi Select <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<select class="form-control" name="select_multi" multiple>
-												<option value="Category 1">Category 1</option>
-												<option value="Category 2">Category 2</option>
-												<option value="Category 3">Category 3</option>
-												<option value="Category 4">Category 4</option>
-												<option value="Category 5">Category 5</option>
-											</select>
-											<span class="help-block">
-											select max 3 options, min 1 option </span>
-										</div>
-									</div>
+									<!-- /.modal-content -->
 								</div>
-								<div class="form-actions">
-									<div class="row">
-										<div class="col-md-offset-3 col-md-9">
-											<button type="submit" class="btn green">Submit</button>
-											<button type="button" class="btn default">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</form>
-							<!-- END FORM-->
+								<!-- /.modal-dialog -->
+							</div>
+							<p>
+								<a href="javascript:;" class="btn green" id="blockui_sample_3_2">
+								Block Below Element </a>
+								<a href="javascript:;" class="btn default" id="blockui_sample_3_2_1">
+								Unblock Below Element </a>
+							</p>
+							<div id="blockui_sample_3_2_element">
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+							</div>
 						</div>
 					</div>
-					<!-- END VALIDATION STATES-->
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN VALIDATION STATES-->
-					<div class="portlet box yellow">
+				<div class="col-md-6">
+					<div class="portlet red box">
 						<div class="portlet-title">
 							<div class="caption">
-								<i class="fa fa-gift"></i>Validation Using Icons
+								<i class="fa fa-cogs"></i>Custom Messages
 							</div>
 							<div class="tools">
 								<a href="javascript:;" class="collapse">
@@ -1523,278 +1457,31 @@ License: You must have a valid license purchased only from themeforest(the above
 								</a>
 							</div>
 						</div>
-						<div class="portlet-body form">
-							<!-- BEGIN FORM-->
-							<form action="#" id="form_sample_2" class="form-horizontal">
-								<div class="form-body">
-									<div class="alert alert-danger display-hide">
-										<button class="close" data-close="alert"></button>
-										You have some form errors. Please check below.
-									</div>
-									<div class="alert alert-success display-hide">
-										<button class="close" data-close="alert"></button>
-										Your form validation is successful!
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Name <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="name"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Email <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="email"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">URL <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="url"/>
-											</div>
-											<span class="help-block">
-											e.g: http://www.demo.com or http://demo.com </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Number <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="number"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Digits <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="digits"/>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Credit Card <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-icon right">
-												<i class="fa"></i>
-												<input type="text" class="form-control" name="creditcard"/>
-											</div>
-											<span class="help-block">
-											e.g: 5500 0000 0000 0004 </span>
-										</div>
-									</div>
-								</div>
-								<div class="form-actions">
-									<div class="row">
-										<div class="col-md-offset-3 col-md-9">
-											<button type="submit" class="btn green">Submit</button>
-											<button type="button" class="btn default">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</form>
-							<!-- END FORM-->
-						</div>
-					</div>
-					<!-- END VALIDATION STATES-->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<!-- BEGIN VALIDATION STATES-->
-					<div class="portlet box green">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-gift"></i>Advance Validation
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="collapse">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config">
-								</a>
-								<a href="javascript:;" class="reload">
-								</a>
-								<a href="javascript:;" class="remove">
-								</a>
+						<div class="portlet-body" id="blockui_sample_4_portlet_body">
+							<p>
+								<a href="javascript:;" class="btn blue" id="blockui_sample_4_1">
+								Block Portlet With Custom Message </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn yellow" id="blockui_sample_4_2">
+								Block Portlet With Spinning Image Only </a>
+							</p>
+							<p>
+								<a href="javascript:;" class="btn purple" id="blockui_sample_4_3">
+								Block Portlet With Text Only </a>
+							</p>
+							<div>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
+								<p>
+									 At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique.
+								</p>
 							</div>
 						</div>
-						<div class="portlet-body form">
-							<!-- BEGIN FORM-->
-							<form action="#" id="form_sample_3" class="form-horizontal">
-								<div class="form-body">
-									<h3 class="form-section">Advance validation. <small>Custom radio buttons, checkboxes and Select2 dropdowns</small></h3>
-									<div class="alert alert-danger display-hide">
-										<button class="close" data-close="alert"></button>
-										You have some form errors. Please check below.
-									</div>
-									<div class="alert alert-success display-hide">
-										<button class="close" data-close="alert"></button>
-										Your form validation is successful!
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Name <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input type="text" name="name" data-required="1" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-md-3 control-label">Email Address <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="input-group">
-												<span class="input-group-addon">
-												<i class="fa fa-envelope"></i>
-												</span>
-												<input type="email" name="email" class="form-control" placeholder="Email Address">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Occupation&nbsp;&nbsp;</label>
-										<div class="col-md-4">
-											<input name="occupation" type="text" class="form-control"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Select2 Dropdown <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<select class="form-control select2me" name="options2">
-												<option value="">Select...</option>
-												<option value="Option 1">Option 1</option>
-												<option value="Option 2">Option 2</option>
-												<option value="Option 3">Option 3</option>
-												<option value="Option 4">Option 4</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Select2 Tags <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<input type="hidden" class="form-control" id="select2_tags" value="" name="select2tags">
-											<span class="help-block">
-											select tags </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Datepicker</label>
-										<div class="col-md-4">
-											<div class="input-group date date-picker" data-date-format="dd-mm-yyyy">
-												<input type="text" class="form-control" readonly name="datepicker">
-												<span class="input-group-btn">
-												<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
-												</span>
-											</div>
-											<!-- /input-group -->
-											<span class="help-block">
-											select a date </span>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Membership <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="radio-list" data-error-container="#form_2_membership_error">
-												<label>
-												<input type="radio" name="membership" value="1"/>
-												Fee </label>
-												<label>
-												<input type="radio" name="membership" value="2"/>
-												Professional </label>
-											</div>
-											<div id="form_2_membership_error">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Services <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-4">
-											<div class="checkbox-list" data-error-container="#form_2_services_error">
-												<label>
-												<input type="checkbox" value="1" name="service"/> Service 1 </label>
-												<label>
-												<input type="checkbox" value="2" name="service"/> Service 2 </label>
-												<label>
-												<input type="checkbox" value="3" name="service"/> Service 3 </label>
-											</div>
-											<span class="help-block">
-											(select at least two) </span>
-											<div id="form_2_services_error">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">Markdown</label>
-										<div class="col-md-9">
-											<textarea name="markdown" data-provide="markdown" rows="10" data-error-container="#editor_error"></textarea>
-											<div id="editor_error">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-3">WYSIHTML5 Editor <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-9">
-											<textarea class="wysihtml5 form-control" rows="6" name="editor1" data-error-container="#editor1_error"></textarea>
-											<div id="editor1_error">
-											</div>
-										</div>
-									</div>
-									<div class="form-group last">
-										<label class="control-label col-md-3">CKEditor <span class="required">
-										* </span>
-										</label>
-										<div class="col-md-9">
-											<textarea class="ckeditor form-control" name="editor2" rows="6" data-error-container="#editor2_error"></textarea>
-											<div id="editor2_error">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-actions">
-									<div class="row">
-										<div class="col-md-offset-3 col-md-9">
-											<button type="submit" class="btn green">Submit</button>
-											<button type="button" class="btn default">Cancel</button>
-										</div>
-									</div>
-								</div>
-							</form>
-							<!-- END FORM-->
-						</div>
-						<!-- END VALIDATION STATES-->
 					</div>
 				</div>
 			</div>
@@ -1832,32 +1519,19 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="resources/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script type="text/javascript" src="resources/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/select2/select2.min.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-<script type="text/javascript" src="resources/assets/global/plugins/bootstrap-markdown/lib/markdown.js"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN PAGE LEVEL STYLES -->
+<script src="resources/assets/admin/pages/scripts/ui-blockui.js"></script>
 <script src="resources/assets/global/scripts/metronic.js" type="text/javascript"></script>
 <script src="resources/assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
 <script src="resources/assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
-<script src="resources/assets/admin/pages/scripts/form-validation.js"></script>
-<!-- END PAGE LEVEL STYLES -->
 <script>
-jQuery(document).ready(function() {   
-   // initiate layout and plugins
-   Metronic.init(); // init metronic core components
+        jQuery(document).ready(function() {       
+           // initiate layout and plugins
+           Metronic.init(); // init metronic core components
 Layout.init(); // init current layout
 Demo.init(); // init demo features
-   FormValidation.init();
-});
-</script>
+           UIBlockUI.init();
+        });
+    </script>
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

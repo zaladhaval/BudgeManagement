@@ -24,7 +24,7 @@
 					</li>
 					<!-- BEGIN USER LOGIN DROPDOWN -->
 					<li class="dropdown dropdown-user dropdown-dark">
-						<a href="javascript:;" class="dropdown-toggle">
+						<a href="/auth/logout" class="dropdown-toggle">
 						<span class="username username-hide-on-mobile" title="logout" data-toggle="tooltip"><i class="icon-logout"></i>
 						Nick </span>
 						</a>

@@ -13,17 +13,16 @@
 
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="resources/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+
 <script src="resources/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
 <script src="resources/assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
 <script src="resources/assets/global/scripts/metronic.js" type="text/javascript"></script>
-
+<script src="resources/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
 <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
 <script src="resources/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 
 <script src="resources/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="resources/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
@@ -59,6 +58,9 @@
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-markdown/lib/markdown.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/ckeditor/ckeditor.js"></script>
+<script src="resources/assets/global/plugins/bootstrap-toastr/toastr.min.js"></script>
+<script src="resources/assets/admin/pages/scripts/ui-toastr.js"></script>
+<script src="resources/assets/admin/pages/scripts/ui-blockui.js"></script>
+<script src="resources/js/pageInit.js"></script>

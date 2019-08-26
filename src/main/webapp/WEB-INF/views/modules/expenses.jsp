@@ -7,8 +7,6 @@
 								<i class="fa fa-gift"></i>Advance Validation
 							</div>
 							<div class="tools">
-								<a href="#" class="btn default"><i class="icon-calculator"></i>
-								</a>
 								
 							</div>
 						</div>

@@ -51,13 +51,16 @@
 <script src="resources/assets/global/scripts/metronic.js" type="text/javascript"></script>
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <%@ include file="include/script.jsp" %>
+<script src="resources/js/${page}.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
 jQuery(document).ready(function() { 
 	 Metronic.init(); // init metronic core components
 	 Layout.init(); // init current layout
 	 Demo.init(); // init demo features
+	 UIBlockUI.init();
 	 TableManaged.init();
+	 UIToastr.init();
 	 FormValidation.init();
 	$('li').removeClass('active');
 	$('.${page}').addClass('active');

@@ -29,3 +29,4 @@
 <link href="resources/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
 <link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+<link rel="stylesheet" type="text/css" href="resources/assets/global/plugins/bootstrap-toastr/toastr.min.css"/>
