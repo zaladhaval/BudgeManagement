@@ -28,10 +28,10 @@
 					<span class="title">uploadDocument</span>
 				</a>
 			</li>
-			<li class="start expenses">
-				<a href="/expenses">
+			<li class="start expense">
+				<a href="expense">
 					<i class=" icon-wallet"></i>
-					<span class="title">Add expenses</span>
+					<span class="title">Add expense</span>
 				</a>
 			</li>
 		</ul>

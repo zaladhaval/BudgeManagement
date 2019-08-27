@@ -26,7 +26,7 @@ import com.budget.management.system.ResponseMessage;
 import com.budget.management.system.Variables;
 
 @Controller
-@RequestMapping("/expenses")
+@RequestMapping("/expense")
 public class ExpenceController {
 
 	@Autowired
@@ -44,7 +44,7 @@ public class ExpenceController {
 			response.sendRedirect("/");
 			return null;
 		}
-		model.addAttribute("page", "expenses");
+		model.addAttribute("page", "expense");
 		return "template";
 	}
 
@@ -88,11 +88,11 @@ public class ExpenceController {
 
 	@GetMapping("/getallincome")
 	public @ResponseBody Object getallinc() {
-		return incomereposetory.findAll();
+		return incomereposetory.findAllByOrderByDateDesc();
 	}
-	
+
 	@GetMapping("/getallexpence")
 	public @ResponseBody Object getallexp() {
-		return expenceReposetory.findAll();
+		return expenceReposetory.findAllByOrderByDateDesc();
 	}
 }

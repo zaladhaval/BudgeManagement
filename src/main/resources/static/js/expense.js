@@ -143,7 +143,7 @@ jQuery(document).ready(function() {
 		if (form.amount!=''&&form.type!=''&&form.date!=''&&form.description!='') {
 		$.ajax({
 			type: 'POST',
-			url: "expenses/add",
+			url: "expense/add",
 			dataType: "JSON",
 			async: true,
 			data: JSON.stringify(form),
@@ -158,9 +158,10 @@ jQuery(document).ready(function() {
 			success : function(data) {
 				if (data.status) {
 					success(data.message);
-					Metronic.unblockUI();
-					$("#form_sample_3")[0].reset();
 					location.reload();
+					//Metronic.unblockUI();
+					//$("#form_sample_3")[0].reset();
+					
 				} else if (!data.status) {
 					error(data.message);
 					Metronic.unblockUI();

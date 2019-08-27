@@ -3,84 +3,42 @@
 		<div class="dashboard-stat2">
 			<div class="display">
 				<div class="number">
-					<h3 class="font-green-sharp">7800<small class="font-green-sharp">$</small></h3>
-					<small>TOTAL PROFIT</small>
+					<h3 class="font-green-sharp" id="totalinc">0</h3>
+					<small>TOTAL Income</small>
 				</div>
 				<div class="icon">
-					<i class="icon-pie-chart"></i>
+					<i class="icon-wallet"></i>
 				</div>
 			</div>
-			<div class="progress-info">
-				<div class="progress">
-					<span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
-						<span class="sr-only">76% progress</span>
-					</span>
-				</div>
-				<div class="status">
-					<div class="status-title">
-						progress
-					</div>
-					<div class="status-number">
-						76%
-					</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 		<div class="dashboard-stat2">
 			<div class="display">
 				<div class="number">
-					<h3 class="font-red-haze">1349</h3>
-					<small>NEW FEEDBACKS</small>
-				</div>
-				<div class="icon">
-					<i class="icon-like"></i>
-				</div>
-			</div>
-			<div class="progress-info">
-				<div class="progress">
-					<span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
-						<span class="sr-only">85% change</span>
-					</span>
-				</div>
-				<div class="status">
-					<div class="status-title">
-						change
-					</div>
-					<div class="status-number">
-						85%
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-		<div class="dashboard-stat2">
-			<div class="display">
-				<div class="number">
-					<h3 class="font-blue-sharp">567</h3>
-					<small>NEW ORDERS</small>
+					<h3 class="font-red-haze" id="totalexp">0</h3>
+					<small>Total Expense </small>
 				</div>
 				<div class="icon">
 					<i class="icon-basket"></i>
 				</div>
 			</div>
-			<div class="progress-info">
-				<div class="progress">
-					<span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
-						<span class="sr-only">45% grow</span>
-					</span>
+
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<div class="dashboard-stat2">
+			<div class="display">
+				<div class="number">
+					<h3 class="font-blue-sharp" id="remain">0</h3>
+					<small>Remaining Amount</small>
 				</div>
-				<div class="status">
-					<div class="status-title">
-						grow
-					</div>
-					<div class="status-number">
-						45%
-					</div>
+				<div class="icon">
+					<i class=" icon-basket-loaded"></i>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -92,21 +50,6 @@
 				</div>
 				<div class="icon">
 					<i class="icon-user"></i>
-				</div>
-			</div>
-			<div class="progress-info">
-				<div class="progress">
-					<span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
-						<span class="sr-only">56% change</span>
-					</span>
-				</div>
-				<div class="status">
-					<div class="status-title">
-						change
-					</div>
-					<div class="status-number">
-						57%
-					</div>
 				</div>
 			</div>
 		</div>
@@ -147,6 +90,26 @@
 											<div class="caption">
 												<i class="fa fa-globe"></i>Columns Reorder
 											</div>
+											<div class="actions">
+												<div class="btn-group btn-group-devided" data-toggle="buttons">
+													<label
+														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+														<input type="radio" name="options" class="toggle"
+															id="alltimeex">All</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle"
+															id="todayex">Today</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle"
+															id="weekex">Week</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle"
+															id="monthex">Month</label>
+												</div>
+											</div>
 										</div>
 										<div class="portlet-body">
 											<table class="table table-striped table-bordered table-hover" id="expence">
@@ -183,6 +146,26 @@
 										<div class="portlet-title">
 											<div class="caption">
 												<i class="fa fa-globe"></i>Columns Reorder
+											</div>
+											<div class="actions">
+												<div class="btn-group btn-group-devided" data-toggle="buttons">
+													<label
+														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
+														<input type="radio" name="options" class="toggle"
+															id="alltime">All</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle"
+															id="todayin">Today</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle"
+															id="weekin">Week</label>
+
+													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle"
+															id="monthin">Month</label>
+												</div>
 											</div>
 										</div>
 										<div class="portlet-body">

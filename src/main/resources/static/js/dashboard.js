@@ -1,7 +1,6 @@
    jQuery(document).ready(function () {
-	   /*$("#alltime").prop("checked", true);
-	   $("#alltype").prop("checked", true);
-	   */
+	   
+	   counterdata();
 	   var table = $('#expence');
 
        /* Fixed header extension: http://datatables.net/extensions/keytable/ */
@@ -39,10 +38,10 @@
                "targets": [0]
            }],
            "order": [
-               [1, "asc"]
+               [2, "desc"]
            ],
            "ajax": {
-   			"url": "expenses/getallexpence",
+   			"url": "expense/getallexpence",
    			"type": "GET",
    			"dataSrc": ''
    		},
@@ -103,7 +102,7 @@
                "zeroRecords": "No matching records found"
            },
            "order": [
-               [0, 'asc']
+               [2, 'desc']
            ],
            "lengthMenu": [
                [5, 15, 20, -1],
@@ -118,10 +117,10 @@
                "targets": [0]
            }],
            "order": [
-               [1, "asc"]
+               [2, "desc"]
            ],
            "ajax": {
-   			"url": "expenses/getallincome",
+   			"url": "expense/getallincome",
    			"type": "GET",
    			"dataSrc": ''
    		},"columns": [
@@ -158,3 +157,40 @@
        var tableWrapper1 = $('#sample_6_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
        tableWrapper1.find('.dataTables_length select').select2(); // initialize select2 dropdown
    });
+
+function counterdata() {
+	$.ajax({
+		type: 'GET',
+		url: "dashboard/counterdetails",
+		dataType: "JSON",
+		async: true,
+		processData: false,
+		cache: false,
+		contentType: "application/json",
+		beforeSend : function() {
+			Metronic.blockUI({
+				boxed: true
+			});
+		},
+		success : function(data) {
+			if (data.status) {
+				Metronic.unblockUI();
+				
+				$("#totalinc").html(data.response['totalinc']+'&nbsp;<small class="font-green-sharp"><i class="fa fa-inr" style="font-size: 24px;"></i></small>');
+				$("#totalexp").html(data.response['totalexp']+'&nbsp;<small class="font-red-sharp"><i class="fa fa-inr" style="font-size: 24px; color : #f36a5a;"></i></small>');
+				$("#remain").html(data.response['remain']+'&nbsp;<small class="font-red-sharp"><i class="fa fa-inr" style="font-size: 24px; color : #5C9BD1;"></i></small>');
+			} else if (!data.status) {
+				error(data.message);
+				Metronic.unblockUI();
+			} else {
+				error(data.message);
+				Metronic.unblockUI();
+			}
+
+		},
+		error : function() {
+			error("Problem occures during process");
+			Metronic.unblockUI();
+		}
+	});	
+}
