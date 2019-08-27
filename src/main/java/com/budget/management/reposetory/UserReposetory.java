@@ -9,4 +9,5 @@ public interface UserReposetory extends JpaRepository<UserMetaModel, Integer>{
 	UserMetaModel findByUsername(String username);
 	UserMetaModel findByemail(String email);
 	UserMetaModel findBycontact(String contact);
+	UserMetaModel findBytoken(String token);
 }

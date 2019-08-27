@@ -47,11 +47,9 @@
 <script src="resources/assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
 <script src="resources/assets/admin/pages/scripts/index3.js" type="text/javascript"></script>
 <script src="resources/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
-<script src="resources/assets/admin/pages/scripts/table-managed.js"></script>
 <script src="resources/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
 <script src="resources/assets/global/plugins/morris/morris.js" type="text/javascript"></script>
 <script src="resources/assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
-<script src="resources/assets/admin/pages/scripts/form-validation.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
 <script type="text/javascript" src="resources/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
@@ -64,3 +62,6 @@
 <script src="resources/assets/admin/pages/scripts/ui-toastr.js"></script>
 <script src="resources/assets/admin/pages/scripts/ui-blockui.js"></script>
 <script src="resources/js/pageInit.js"></script>
+<script type="text/javascript" src="resources/assets/global/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+<script type="text/javascript" src="resources/assets/global/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.js"></script>
+
