@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "documendetails")
-public class DocumentUploadMetaModel {
+public class DocumentMetaModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

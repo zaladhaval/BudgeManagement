@@ -1,7 +1,5 @@
 package com.budget.management.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +17,7 @@ public class ExpenceMetaModel {
 	String Type;
 	int amount;
 	String description;
-	LocalDate date;
+	String date;
 	String userid;
 	
 	public int getId() {
@@ -62,20 +60,20 @@ public class ExpenceMetaModel {
 		this.description = description;
 	}
 
-	public LocalDate getDate() {
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
 	public String getUserid() {
 		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
 	}
 
 }

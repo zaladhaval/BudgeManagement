@@ -39,7 +39,7 @@
                [1, "asc"]
            ],
            "ajax": {
-      			"url": "uploadDocument/getall",
+      			"url": "document/getall",
       			"type": "GET",
       			"dataSrc": ''
       		},
@@ -71,7 +71,7 @@
     					
     						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="editdoc(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
     							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedoc(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>'+
-    							'&nbsp &nbsp<a  href="uploadDocument/download?name=' + "" + row.nameOfDocument + "" + '">' +"<i style='radius= 30%; font-size: 20px; color: black;' class='fa fa-download'></i></a>";
+    							'&nbsp &nbsp<a  href="document/download?name=' + "" + row.nameOfDocument + "" + '">' +"<i style='radius= 30%; font-size: 20px; color: black;' class='fa fa-download'></i></a>";
 
     					return str;
 
@@ -95,7 +95,7 @@
        console.log(form);
        $.ajax({
        	 type: 'POST',
-   	        url: "uploadDocument/download",
+   	        url: "document/download",
    	        dataType: "JSON",
    	        async: true,
    	        data: form,

@@ -1,8 +1,5 @@
 package com.budget.management.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.budget.management.lib.LoginController;
@@ -56,13 +54,10 @@ public class ExpenceController {
 				response.sendRedirect("/");
 				return null;
 			}
-			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-
-			LocalDate localDate = LocalDate.parse(expenceIncomeDetailModel.getDate(), formatter);
 			if (expenceIncomeDetailModel.getType().equals("Expence")) {
 				ExpenceMetaModel expenceMetaModel = new ExpenceMetaModel();
 				expenceMetaModel.setAmount(expenceIncomeDetailModel.getAmount());
-				expenceMetaModel.setDate(localDate);
+				expenceMetaModel.setDate(expenceIncomeDetailModel.getDate());
 				expenceMetaModel.setUserid(session.getAttribute("token").toString());
 				expenceMetaModel.setDescription(expenceIncomeDetailModel.getDescription());
 				expenceMetaModel.setType(expenceIncomeDetailModel.getType());
@@ -73,7 +68,7 @@ public class ExpenceController {
 				IncomeMetaModel incomeMetaModel = new IncomeMetaModel();
 				incomeMetaModel.setAmount(expenceIncomeDetailModel.getAmount());
 				incomeMetaModel.setUserid(session.getAttribute("token").toString());
-				incomeMetaModel.setDate(localDate);
+				incomeMetaModel.setDate(expenceIncomeDetailModel.getDate());
 				incomeMetaModel.setDescription(expenceIncomeDetailModel.getDescription());
 				incomeMetaModel.setType(expenceIncomeDetailModel.getType());
 				incomeMetaModel.setToken(randomToken.getToken(10));
@@ -87,12 +82,24 @@ public class ExpenceController {
 	}
 
 	@GetMapping("/getallincome")
-	public @ResponseBody Object getallinc() {
-		return incomereposetory.findAllByOrderByDateDesc();
+	public @ResponseBody Object getallinc(@RequestParam String date, HttpServletResponse response, HttpSession session)
+			throws Exception {
+		if (!LoginController.userValidate(session)) {
+			response.sendRedirect("/");
+			return null;
+		}
+		return incomereposetory.findByUseridAndDateContainingOrderByDateDesc(session.getAttribute("token").toString(),
+				date.trim());
 	}
 
 	@GetMapping("/getallexpence")
-	public @ResponseBody Object getallexp() {
-		return expenceReposetory.findAllByOrderByDateDesc();
+	public @ResponseBody Object getallexp(@RequestParam String date, HttpServletResponse response, HttpSession session)
+			throws Exception {
+		if (!LoginController.userValidate(session)) {
+			response.sendRedirect("/");
+			return null;
+		}
+		return expenceReposetory.findByUseridAndDateContainingOrderByDateDesc(session.getAttribute("token").toString(),
+				date.trim());
 	}
 }

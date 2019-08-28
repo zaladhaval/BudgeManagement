@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.budget.management.lib.LoginController;
-import com.budget.management.model.DocumentUploadMetaModel;
-import com.budget.management.reposetory.DocumentUploadReposetory;
+import com.budget.management.model.DocumentMetaModel;
+import com.budget.management.reposetory.DocumentReposetory;
 import com.budget.management.system.DirPath;
 import com.budget.management.system.FileManagement;
 import com.budget.management.system.RandomToken;
@@ -34,7 +34,7 @@ public class UploadDocumentController {
 	RandomToken randomToken;
 
 	@Autowired
-	DocumentUploadReposetory documentUploadReposetory;
+	DocumentReposetory documentReposetory;
 
 	@GetMapping("")
 	public String index(Model model, HttpServletResponse response, HttpSession session) throws Exception {
@@ -60,15 +60,15 @@ public class UploadDocumentController {
 					+ FilenameUtils.getExtension(file.getOriginalFilename());
 
 			filemanagement.uploadFile(file, path, filename);
-			DocumentUploadMetaModel documentUploadMetaModel = new DocumentUploadMetaModel();
-			documentUploadMetaModel.setNameOfDocument(filename);
-			documentUploadMetaModel.setName(name);
-			documentUploadMetaModel.setToken(randomToken.getToken(10));
-			documentUploadMetaModel.setSize(file.getSize());
-			documentUploadMetaModel.setType(type.split(" ")[1]);
-			documentUploadMetaModel.setTypeIcon(type.split(" ")[0]);
-			documentUploadMetaModel.setUserid(session.getAttribute("token").toString());
-			documentUploadReposetory.save(documentUploadMetaModel);
+			DocumentMetaModel documentMetaModel = new DocumentMetaModel();
+			documentMetaModel.setNameOfDocument(filename);
+			documentMetaModel.setName(name);
+			documentMetaModel.setToken(randomToken.getToken(10));
+			documentMetaModel.setSize(file.getSize());
+			documentMetaModel.setType(type.split(" ")[1]);
+			documentMetaModel.setTypeIcon(type.split(" ")[0]);
+			documentMetaModel.setUserid(session.getAttribute("token").toString());
+			documentReposetory.save(documentMetaModel);
 			response.sendRedirect("/uploadDocument");
 			return ResponseMessage.message("Document Uploded Successfully", Variables.successCode, true);
 		} catch (Exception e) {
@@ -76,23 +76,5 @@ public class UploadDocumentController {
 		}
 	}
 
-	@GetMapping("/getall")
-	public @ResponseBody Object getall(HttpServletResponse response, HttpSession session) throws Exception {
-		if (!LoginController.userValidate(session)) {
-			response.sendRedirect("/");
-			return null;
-		}
-		return documentUploadReposetory.findAll();
-	}
-
-	@GetMapping("/download")
-	public @ResponseBody Object downloadfie(@RequestParam String name, HttpServletResponse response, HttpSession session) throws Exception {
-		if (!LoginController.userValidate(session)) {
-			response.sendRedirect("/");
-			return null;
-		}
-		System.out.println("dd");
-		String path = DirPath.setPath() + "/docs/" + session.getAttribute("token")+"/"+name;
-		return filemanagement.downloadFile(path);
-	}
+	
 }

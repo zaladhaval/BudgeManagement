@@ -9,13 +9,16 @@ import com.budget.management.model.ExpenceMetaModel;
 
 public interface ExpenceReposetory extends JpaRepository<ExpenceMetaModel, Integer> {
 
-	@Query("SELECT SUM(x.amount) FROM ExpenceMetaModel x")
-	int getsum();
-	
-	 public List<ExpenceMetaModel> findAllByOrderByDateDesc();
-	 
-	/*
-	 * @Query("SELECT SUM(x.amount) FROM ExpenceMetaModel x WHERE x.Type = ?1") int
-	 * getsum(String type);
-	 */
+	@Query("SELECT SUM(x.amount) FROM ExpenceMetaModel x WHERE x.userid = ?1")
+	int getsum(String usrid);
+
+	public List<ExpenceMetaModel> findAllByOrderByDateDesc();
+
+	public List<ExpenceMetaModel> findByuserid(String userid);
+
+	public List<ExpenceMetaModel> findByUseridAndDateContainingOrderByDateDesc(String userid,String date);
+
+	@Query("SELECT x.date FROM ExpenceMetaModel x WHERE x.userid = ?1 GROUP BY x.date")
+	public List<String> getgroup(String userid);
+
 }

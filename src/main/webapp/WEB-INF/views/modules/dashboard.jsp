@@ -74,7 +74,7 @@
 							</div>
 							<ul class="nav nav-tabs">
 								<li class="active">
-									<a href="#tab_1_1" data-toggle="tab">Expence</a>
+									<a href="#tab_1_1" data-toggle="tab">Expense</a>
 								</li>
 								<li>
 									<a href="#tab_1_3" data-toggle="tab">Income</a>
@@ -88,7 +88,7 @@
 									<div class="portlet box red-intense">
 										<div class="portlet-title">
 											<div class="caption">
-												<i class="fa fa-globe"></i>Columns Reorder
+												<i class="fa fa-globe"></i>Expenses Details
 											</div>
 											<div class="actions">
 												<div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -104,10 +104,6 @@
 													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
 														<input type="radio" name="options" class="toggle"
 															id="weekex">Week</label>
-
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-														<input type="radio" name="options" class="toggle"
-															id="monthex">Month</label>
 												</div>
 											</div>
 										</div>
@@ -145,7 +141,7 @@
 									<div class="portlet box red-intense">
 										<div class="portlet-title">
 											<div class="caption">
-												<i class="fa fa-globe"></i>Columns Reorder
+												<i class="fa fa-globe"></i>Income Details
 											</div>
 											<div class="actions">
 												<div class="btn-group btn-group-devided" data-toggle="buttons">
@@ -161,10 +157,6 @@
 													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
 														<input type="radio" name="options" class="toggle"
 															id="weekin">Week</label>
-
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-														<input type="radio" name="options" class="toggle"
-															id="monthin">Month</label>
 												</div>
 											</div>
 										</div>
