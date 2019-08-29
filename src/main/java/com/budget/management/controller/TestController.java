@@ -1,7 +1,11 @@
 package com.budget.management.controller;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -29,10 +33,9 @@ public class TestController {
 	@GetMapping("/testsum")
 	public Object name(HttpSession session) {
 		Map<String, Integer> data = new HashMap<String, Integer>();
-		data.put("totalinc", incomeReposetory.getsum(session.getAttribute("token").toString()));
-		data.put("totalexp", expenceReposetory.getsum(session.getAttribute("token").toString()));
-		data.put("remain", incomeReposetory.getsum(session.getAttribute("token").toString())
-				- expenceReposetory.getsum(session.getAttribute("token").toString()));
+		//data.put("totalinc", incomeReposetory.getsum(session.getAttribute("token").toString()));
+		//data.put("totalexp", expenceReposetory.getsum(session.getAttribute("token").toString()));
+		//data.put("remain", incomeReposetory.getsum(session.getAttribute("token").toString())- expenceReposetory.getsum(session.getAttribute("token").toString()));
 		return data;
 	}
 
@@ -51,7 +54,32 @@ public class TestController {
 		};
 		List<String> numbersList = new ArrayList<String>(finaldata);
 		Collections.sort(numbersList);
-		  //ArrayList<String> al =(ArrayList<String>)finaldata.toArray();
 		return numbersList;
+	}
+	
+	@GetMapping("/datetest")
+	public Object datetest() {
+		LocalDate localDate=LocalDate.now();
+		String d=localDate.toString();
+		return d.substring(7);
+	}
+	
+	@GetMapping("/daterangeteat")
+	public Object daterangetest() throws Exception{
+		String da="2019-08";
+		LocalDate localDate=LocalDate.now();
+		da=da+"-"+localDate.getDayOfMonth();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = sdf.parse(da);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.DAY_OF_YEAR, -6);
+		List<String> dates=new ArrayList<String>();
+		for(int i = 0; i< 6; i++){
+		    cal.add(Calendar.DAY_OF_YEAR, 1);
+		    dates.add(sdf.format(cal.getTime()));
+		}
+		
+		return expenceReposetory.findByDateIn(dates);
 	}
 }

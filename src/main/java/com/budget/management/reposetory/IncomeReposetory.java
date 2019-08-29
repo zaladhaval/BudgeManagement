@@ -9,13 +9,18 @@ import com.budget.management.model.IncomeMetaModel;
 
 public interface IncomeReposetory extends JpaRepository<IncomeMetaModel, Integer> {
 
+	@Query("SELECT SUM(x.amount) FROM IncomeMetaModel x WHERE x.userid = ?1 AND x.date Like ?2% ")
+	String getsum(String userid, String date);
+
 	@Query("SELECT SUM(x.amount) FROM IncomeMetaModel x WHERE x.userid = ?1")
-	int getsum(String userid);
+	String getsumtotal(String userid);
 	
 	public List<IncomeMetaModel> findAllByOrderByDateDesc();
 	
-	public List<IncomeMetaModel> findByUseridAndDateContainingOrderByDateDesc(String userid,String date);
-	
+	public List<IncomeMetaModel> findByDateIn(List<String> dates);
+
+	public List<IncomeMetaModel> findByUseridAndDateContainingOrderByDateDesc(String userid, String date);
+
 	@Query("SELECT x.date FROM IncomeMetaModel x WHERE x.userid = ?1 GROUP BY x.date")
 	public List<String> getgroup(String userid);
 }

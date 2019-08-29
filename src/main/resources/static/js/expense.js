@@ -39,16 +39,6 @@ var FormValidation = function () {
                     },
                 },
 
-                messages: { // custom messages for radio buttons and checkboxes
-                    membership: {
-                        required: "Please select a Membership type"
-                    },
-                    service: {
-                        required: "Please select  at least 2 types of Service",
-                        minlength: jQuery.validator.format("Please select  at least {0} types of Service")
-                    }
-                },
-
                 errorPlacement: function (error, element) { // render error placement for each input type
                     if (element.parent(".input-group").size() > 0) {
                         error.insertAfter(element.parent(".input-group"));

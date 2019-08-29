@@ -1,19 +1,26 @@
 var d='';
 jQuery(document).ready(function () {
 	   loadrange();
-	   counterdata();
 	   d=$('#dashboard-action li label .active').val();
+	   counterdata();
+	  
 	   loadtables();
    });
 
 function updatedashboard(id){
-		
+		//
+	 $('#expenceduration label').removeClass('active');
+	 $('#expenceduration').children().first().addClass('active');
+	 
+	 $('#incomeduration label').removeClass('active');
+	 $('#incomeduration').children().first().addClass('active');
+	 
 	 $('#dashboard-action li label input').removeClass('active');	
 	 $('#'+id).addClass('active');
 	 d=$('#dashboard-action li label .active').val();
-	 list_refresh();
-	 list_refresh1();
-	 
+	 list_refresh( "expense/getallexpence?date="+d );
+	 list_refresh1("expense/getallincome?date="+d);
+	  counterdata();
 }
    
   function loadtables() {
@@ -75,8 +82,8 @@ function updatedashboard(id){
 				data: "id",
 				mRender: function (data, type, row) {
 					var str;
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="getinst(' + "'" + row.instToken + "'" + ')" class="fa fa-edit"></i>' +
-							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.instToken + "'" + ')" class="fa fa-trash"></i>';
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="getinst(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>';
 
 					return str;
 
@@ -151,8 +158,8 @@ function updatedashboard(id){
 				mRender: function (data, type, row) {
 					var str;
 					
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="getinst(' + "'" + row.instToken + "'" + ')" class="fa fa-edit"></i>' +
-							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.instToken + "'" + ')" class="fa fa-trash"></i>';
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="getinst(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>';
 
 					return str;
 
@@ -165,14 +172,14 @@ function updatedashboard(id){
 
       var tableWrapper1 = $('#sample_6_wrapper'); 
       tableWrapper1.find('.dataTables_length select').select2();
-      list_refresh = function ()
+      list_refresh = function (url)
       {
-    	  oTable.ajax.url( "expense/getallexpence?date="+d ).load();
+    	  oTable.ajax.url(url).load();
     	  oTable.ajax.reload(null, false);
       };
-      list_refresh1 = function ()
+      list_refresh1 = function (url)
       {
-    	  oTable1.ajax.url( "expense/getallincome?date="+d ).load();
+    	  oTable1.ajax.url( url ).load();
     	  oTable1.ajax.reload(null, false);
       };
      
@@ -181,9 +188,9 @@ function updatedashboard(id){
 function counterdata() {
 	$.ajax({
 		type: 'GET',
-		url: "dashboard/counterdetails",
+		url: "dashboard/counterdetails?date="+d,
 		dataType: "JSON",
-		async: true,
+		async: false,
 		processData: false,
 		cache: false,
 		contentType: "application/json",
@@ -199,6 +206,7 @@ function counterdata() {
 				$("#totalinc").html(data.response['totalinc']+'&nbsp;<small class="font-green-sharp"><i class="fa fa-inr" style="font-size: 24px;"></i></small>');
 				$("#totalexp").html(data.response['totalexp']+'&nbsp;<small class="font-red-sharp"><i class="fa fa-inr" style="font-size: 24px; color : #f36a5a;"></i></small>');
 				$("#remain").html(data.response['remain']+'&nbsp;<small class="font-red-sharp"><i class="fa fa-inr" style="font-size: 24px; color : #5C9BD1;"></i></small>');
+				$("#remaintotal").html(data.response['totalremain']+'&nbsp;<small class="font-red-sharp"><i class="fa fa-inr" style="font-size: 24px; color : #8877a9 !important"></i></small>');
 			} else if (!data.status) {
 				error(data.message);
 				Metronic.unblockUI();
@@ -234,7 +242,6 @@ function loadrange() {
 		},
 		success : function(data) {
 			if (data.status) {
-				console.log(data.response);
 				Metronic.unblockUI();
 				var text = '';
 				var i;
@@ -246,7 +253,6 @@ function loadrange() {
 				$('#0').prop('checked',true);
 				$("#dashboard-action li:first").css({"background":"#f2f6f9" , "border-left":"3px solid #5C9ACF"});
 				
-				console.log(text);
 				} else if (!data.status) {
 				error(data.message);
 				Metronic.unblockUI();
@@ -265,3 +271,49 @@ function loadrange() {
 	
 }
 
+function daydurationexp(id) {
+d=$('#dashboard-action li label .active').val();
+	switch($('#'+id).val()) {
+	  case 'alltimeex':
+		  list_refresh( "expense/getallexpence?date="+d );
+	    break;
+	  case 'todayex':
+		  var today = new Date();
+		  var dd = today.getDate();
+		  var mm = today.getMonth()+1; //January is 0!
+		  var yyyy = today.getFullYear();
+		  d=d+'-'+dd;
+		  list_refresh( "expense/getallexpence?date="+d );
+		  break;
+	  case 'weekex':
+		  list_refresh( "expense/getallexpenceweek?date="+d );
+	    break;
+	  default:
+	    // code block
+	}
+	
+	
+}
+
+function daydurationinc(id) {
+	d=$('#dashboard-action li label .active').val();
+	
+	switch($('#'+id).val()) {
+	  case 'alltimein':
+		  list_refresh1("expense/getallincome?date="+d);
+	    break;
+	  case 'todayin':
+		  var today = new Date();
+		  var dd = today.getDate();
+		  var mm = today.getMonth()+1; //January is 0!
+		  var yyyy = today.getFullYear();
+		  d=d+'-'+dd;
+		  list_refresh1("expense/getallincome?date="+d);
+		  break;
+	  case 'weekin':
+		  list_refresh1("expense/getallinceweek?date="+d);
+	    break;
+	  default:
+	    // code block
+	}
+}

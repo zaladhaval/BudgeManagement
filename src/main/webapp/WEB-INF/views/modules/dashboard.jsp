@@ -4,7 +4,7 @@
 			<div class="display">
 				<div class="number">
 					<h3 class="font-green-sharp" id="totalinc">0</h3>
-					<small>TOTAL Income</small>
+					<small>Monthly Income</small>
 				</div>
 				<div class="icon">
 					<i class="icon-wallet"></i>
@@ -18,7 +18,7 @@
 			<div class="display">
 				<div class="number">
 					<h3 class="font-red-haze" id="totalexp">0</h3>
-					<small>Total Expense </small>
+					<small>Monthly Expense </small>
 				</div>
 				<div class="icon">
 					<i class="icon-basket"></i>
@@ -32,7 +32,7 @@
 			<div class="display">
 				<div class="number">
 					<h3 class="font-blue-sharp" id="remain">0</h3>
-					<small>Remaining Amount</small>
+					<small>Monthly Remaining</small>
 				</div>
 				<div class="icon">
 					<i class=" icon-basket-loaded"></i>
@@ -45,8 +45,8 @@
 		<div class="dashboard-stat2">
 			<div class="display">
 				<div class="number">
-					<h3 class="font-purple-soft">276</h3>
-					<small>NEW USERS</small>
+					<h3 class="font-purple-soft" id="remaintotal">0</h3>
+					<small>Total Remaining</small>
 				</div>
 				<div class="icon">
 					<i class="icon-user"></i>
@@ -91,20 +91,21 @@
 												<i class="fa fa-globe"></i>Expenses Details
 											</div>
 											<div class="actions">
-												<div class="btn-group btn-group-devided" data-toggle="buttons">
-													<label
+												<div class="btn-group btn-group-devided" data-toggle="buttons" id="expenceduration">
+													<label onclick="daydurationexp('alltimeex')"
 														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-														<input type="radio" name="options" class="toggle"
-															id="alltimeex">All</label>
+														<input type="radio" name="options" class="toggle" value="alltimeex"
+															id="alltimeex" >All</label>
 
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm ">
-														<input type="radio" name="options" class="toggle"
+													<label onclick="daydurationexp('todayex')" class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle"  value="todayex"
 															id="todayex">Today</label>
 
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-														<input type="radio" name="options" class="toggle"
+													<label onclick="daydurationexp('weekex')" class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle" value="weekex"
 															id="weekex">Week</label>
 												</div>
+												
 											</div>
 										</div>
 										<div class="portlet-body">
@@ -144,18 +145,18 @@
 												<i class="fa fa-globe"></i>Income Details
 											</div>
 											<div class="actions">
-												<div class="btn-group btn-group-devided" data-toggle="buttons">
-													<label
+												<div class="btn-group btn-group-devided" data-toggle="buttons" id="incomeduration">
+													<label onclick="daydurationinc('alltimein')"
 														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-														<input type="radio" name="options" class="toggle"
-															id="alltime">All</label>
+														<input type="radio" name="options" class="toggle" value="alltimein"
+															id="alltimein">All</label>
 
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm ">
-														<input type="radio" name="options" class="toggle"
+													<label onclick="daydurationinc('todayin')" class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle" value="todayin"
 															id="todayin">Today</label>
 
-													<label class="btn btn-transparent grey-salsa btn-circle btn-sm">
-														<input type="radio" name="options" class="toggle"
+													<label onclick="daydurationinc('weekin')" class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle"  value="weekin"
 															id="weekin">Week</label>
 												</div>
 											</div>

@@ -11,7 +11,7 @@
 						<div class="portlet-title tabbable-line">
 							<div class="caption caption-md">
 								<i class="icon-globe theme-font hide"></i>
-								<span class="caption-subject font-blue-madison bold uppercase">Profile Account</span>
+								<span class="caption-subject font-blue-madison bold uppercase">Profile Details</span>
 							</div>
 							<ul class="nav nav-tabs">
 								<li class="active">
@@ -22,34 +22,35 @@
 								</li>
 							</ul>
 						</div>
-						<div class="portlet-body">
+						<div class="portlet-body form">
 							<div class="tab-content">
 								<!-- PERSONAL INFO TAB -->
 								<div class="tab-pane active" id="tab_1_1">
-									<form role="form" action="#">
+									<form action="#" id="profile-form">
+									
 										<div class="form-group">
 											<label class="control-label">Name</label>
-											<input type="text" placeholder="Full Name" class="form-control" id="name" />
+											<input name="name" type="text" placeholder="Full Name" class="form-control" id="name" required="required" />
 										</div>
 
 										<div class="form-group">
 											<label class="control-label">Mobile Number</label>
-											<input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control"
-												id="contact" />
+											<input name="contact" type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control"
+												id="contact" required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label">Email</label>
-											<input type="text" placeholder="Design, Web etc." class="form-control"
-												id="email" />
+											<input name="email" type="text" placeholder="Design, Web etc." class="form-control"
+												id="email" required="required"/>
 										</div>
 										<div class="form-group">
-											<label class="control-label">Occupation</label>
-											<input type="text" placeholder="Web Developer" class="form-control"
-												id="city" />
+											<label class="control-label">City</label>
+											<input name="city" type="text" placeholder="Web Developer" class="form-control"
+												id="city" required="required"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label ">Country</label>
-											<select name="country" id="select2_sample4" class="form-control">
+											<select name="country" id="select2_sample4" class="form-control" required="required">
 												<option value=""></option>
 												<option value="AF">Afghanistan</option>
 												<option value="AL">Albania</option>
@@ -289,9 +290,8 @@
 										</div>
 
 										<div class="margiv-top-10">
-											<a href="javascript:;" class="btn green-haze">
-												Save Changes </a>
-											<a href="javascript:;" class="btn default">
+											<input type="submit"  class="btn green-haze" value="Save Changes" id="updateuser" />
+												<a href="/dashboard" class="btn default">
 												Cancel </a>
 										</div>
 									</form>
@@ -300,24 +300,22 @@
 
 								<!-- CHANGE PASSWORD TAB -->
 								<div class="tab-pane" id="tab_1_3">
-									<form action="#">
+									<form action="#" id="changepasss-form">
 										<div class="form-group">
 											<label class="control-label">Current Password</label>
-											<input type="password" class="form-control" />
+											<input id="password" type="password" class="form-control" required="required"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">New Password</label>
-											<input type="password" class="form-control" />
+											<input type="password" id="newpassword" class="form-control" required="required"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Re-type New Password</label>
-											<input type="password" class="form-control" />
+											<input type="password" id="confirmpassword" class="form-control" required="required" />
 										</div>
 										<div class="margin-top-10">
-											<a href="javascript:;" class="btn green-haze">
-												Change Password </a>
-											<a href="javascript:;" class="btn default">
-												Cancel </a>
+											<input type="submit"  class="btn green-haze" value="Change Password" id="changpass" />
+											<a href="/profile"  class="btn default">Cancel</a>
 										</div>
 									</form>
 								</div>

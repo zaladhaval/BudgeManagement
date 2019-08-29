@@ -1,5 +1,12 @@
 package com.budget.management.controller;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -101,5 +108,54 @@ public class ExpenceController {
 		}
 		return expenceReposetory.findByUseridAndDateContainingOrderByDateDesc(session.getAttribute("token").toString(),
 				date.trim());
+	}
+	
+	@GetMapping("/getallexpenceweek")
+	public @ResponseBody Object getallexpweek(@RequestParam String date, HttpServletResponse response, HttpSession session)
+			throws Exception {
+		if (!LoginController.userValidate(session)) {
+			response.sendRedirect("/");
+			return null;
+		}
+		
+		LocalDate localDate=LocalDate.now();
+		date=date+"-"+localDate.getDayOfMonth();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date1 = sdf.parse(date);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date1);
+		cal.add(Calendar.DAY_OF_YEAR, -6);
+		List<String> dates=new ArrayList<String>();
+		for(int i = 0; i< 6; i++){
+		    cal.add(Calendar.DAY_OF_YEAR, 1);
+		    dates.add(sdf.format(cal.getTime()));
+		}
+		
+		return expenceReposetory.findByDateIn(dates);
+	}
+	
+	
+	@GetMapping("/getallinceweek")
+	public @ResponseBody Object getallincweek(@RequestParam String date, HttpServletResponse response, HttpSession session)
+			throws Exception {
+		if (!LoginController.userValidate(session)) {
+			response.sendRedirect("/");
+			return null;
+		}
+		
+		LocalDate localDate=LocalDate.now();
+		date=date+"-"+localDate.getDayOfMonth();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date date1 = sdf.parse(date);
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date1);
+		cal.add(Calendar.DAY_OF_YEAR, -6);
+		List<String> dates=new ArrayList<String>();
+		for(int i = 0; i< 6; i++){
+		    cal.add(Calendar.DAY_OF_YEAR, 1);
+		    dates.add(sdf.format(cal.getTime()));
+		}
+		
+		return incomereposetory.findByDateIn(dates);
 	}
 }
