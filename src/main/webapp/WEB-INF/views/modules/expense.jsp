@@ -27,7 +27,7 @@
 									* </span>
 							</label>
 							<div class="col-md-4">
-								<input type="text" name="amount" autocomplete="off" class="form-control"  id="amount"/>
+								<input type="text" name="amount" autocomplete="off" class="form-control" id="amount" />
 							</div>
 						</div>
 						<div class="form-group">

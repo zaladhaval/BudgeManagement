@@ -2,9 +2,16 @@ package com.budget.management.model;
 
 public class ChangePasswordModel {
 
+	String token;
 	String password;
 	String newPassword;
 	String confirmPassword;
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	public String getPassword() {
 		return password;
 	}

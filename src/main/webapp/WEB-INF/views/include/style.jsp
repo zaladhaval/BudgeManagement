@@ -9,6 +9,7 @@
 <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
 <link href="resources/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
 <link href="resources/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
+<link href="resources/assets/global/plugins/sweetalert/css/sweetalert.css" rel="stylesheet" type="text/css"/>
 <link href="resources/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
 <link href="resources/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
 <!-- END PAGE LEVEL PLUGIN STYLES -->

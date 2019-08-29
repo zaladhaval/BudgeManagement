@@ -16,17 +16,18 @@
 	</a>
 	<!-- END RESPONSIVE MENU TOGGLER -->
 	<c:if test="${page == 'dashboard'}">
-	<div class="page-actions">
+		<div class="page-actions">
 
 			<div class="btn-group">
-				<button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-				<span class="hidden-sm hidden-xs">Duration&nbsp;</span><i class="fa fa-angle-down"></i>
+				<button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown" data-close-others="true">
+					<span class="hidden-sm hidden-xs">Duration&nbsp;</span><i class="fa fa-angle-down"></i>
 				</button>
-				
+
 				<ul class="dropdown-menu" role="menu" id="dashboard-action">
-					
+
 				</ul>
-				
+
 			</div>
 		</div>
 	</c:if>
@@ -43,7 +44,7 @@
 					<a href="/auth/logout" class="dropdown-toggle">
 						<span class="username username-hide-on-mobile" title="logout" data-toggle="tooltip"><i
 								class="icon-logout"></i>
-							 </span>
+						</span>
 					</a>
 				</li>
 			</ul>

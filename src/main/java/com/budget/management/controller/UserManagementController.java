@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.budget.management.lib.LoginController;
+import com.budget.management.model.ChangePasswordModel;
 import com.budget.management.model.UserMetaModel;
 import com.budget.management.model.UserModel;
+import com.budget.management.model.UserUpdateModel;
 import com.budget.management.reposetory.UserReposetory;
 import com.budget.management.system.RandomToken;
 import com.budget.management.system.ResponseMessage;
+import com.budget.management.system.Variables;
 
 @Controller
 @RequestMapping("/usermanagement")
@@ -57,7 +60,7 @@ public class UserManagementController {
 	@GetMapping("/getuser")
 	public @ResponseBody Object getUser(HttpServletResponse response, HttpSession session) {
 		try {
-			
+
 			if (!LoginController.userValidate(session)) {
 				response.sendRedirect("/");
 				return null;
@@ -74,4 +77,49 @@ public class UserManagementController {
 		}
 	}
 
+	@PostMapping("/updateUser")
+	public @ResponseBody Object updateUser(@RequestBody UserUpdateModel userUpdateModel, HttpServletResponse response, HttpSession session) {
+		try {
+			if (!LoginController.userValidate(session)) {
+				response.sendRedirect("/");
+				return null;
+			}
+			 UserMetaModel userMetaModel= userReposetory.findBytoken(userUpdateModel.getToken());
+			 userMetaModel.setEmail(userUpdateModel.getEmail());
+			 userMetaModel.setFullName(userUpdateModel.getFullName());
+			 userMetaModel.setContact(userUpdateModel.getContact());
+			 userMetaModel.setCity(userUpdateModel.getCity());
+			 userMetaModel.setCountry(userUpdateModel.getCountry());
+			 userReposetory.save(userMetaModel);
+			return ResponseMessage.message("User Updated Succssfully", Variables.successCode, true);
+		} catch (Exception e) {
+			return ResponseMessage.message(Variables.errorMessage, Variables.serverErrorCode, false);
+		}
+	}
+	
+	@PostMapping("/changepassword")
+	public @ResponseBody Object changPassword(@RequestBody ChangePasswordModel passwordModel, HttpServletResponse response, HttpSession session) {
+		try {
+			if (!LoginController.userValidate(session)) {
+				response.sendRedirect("/");
+				return null;
+			}
+			UserMetaModel userMetaModel= userReposetory.findBytoken(passwordModel.getToken());
+			if (userMetaModel.getPassword().equals(passwordModel.getPassword())) {
+				if (passwordModel.getNewPassword().equals(passwordModel.getConfirmPassword())) {
+				
+					userMetaModel.setPassword(passwordModel.getNewPassword());
+					userReposetory.save(userMetaModel);
+					return ResponseMessage.message("Password Changed Successfully",  Variables.successCode, true);
+				} else {
+					return ResponseMessage.message("Password and Confirm Password did not match",  Variables.serverErrorCode, false);
+				}
+			} else {
+				return ResponseMessage.message("Old password did not match",  Variables.serverErrorCode, false);
+			}
+			
+		} catch (Exception e) {
+			return ResponseMessage.message(Variables.errorMessage, Variables.serverErrorCode, false);
+		}
+	}
 }

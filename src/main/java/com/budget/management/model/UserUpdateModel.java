@@ -2,11 +2,18 @@ package com.budget.management.model;
 
 public class UserUpdateModel {
 	
+	String token;
 	String fullName;
 	String email;
 	String city;
 	String country;
 	String contact;
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	public String getFullName() {
 		return fullName;
 	}

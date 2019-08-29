@@ -27,30 +27,40 @@
 								<!-- PERSONAL INFO TAB -->
 								<div class="tab-pane active" id="tab_1_1">
 									<form action="#" id="profile-form">
-									
+										<div class="alert alert-danger display-hide">
+											<button class="close" data-close="alert"></button>
+											You have some form errors. Please check below.
+										</div>
+										<div class="alert alert-success display-hide">
+											<button class="close" data-close="alert"></button>
+											Your form validation is successful!
+										</div>
+										<input name="token" type="hidden" class="form-control" id="token" />
 										<div class="form-group">
 											<label class="control-label">Name</label>
-											<input name="name" type="text" placeholder="Full Name" class="form-control" id="name" required="required" />
+											<input name="name" type="text" placeholder="Full Name" class="form-control"
+												id="name" required="required" />
 										</div>
 
 										<div class="form-group">
 											<label class="control-label">Mobile Number</label>
-											<input name="contact" type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control"
-												id="contact" required="required" />
+											<input name="contact" type="text" placeholder="+1 646 580 DEMO (6284)"
+												class="form-control" id="contact" required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label">Email</label>
-											<input name="email" type="text" placeholder="Design, Web etc." class="form-control"
-												id="email" required="required"/>
+											<input name="email" type="text" placeholder="Design, Web etc."
+												class="form-control" id="email" required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label">City</label>
-											<input name="city" type="text" placeholder="Web Developer" class="form-control"
-												id="city" required="required"/>
+											<input name="city" type="text" placeholder="Web Developer"
+												class="form-control" id="city" required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label ">Country</label>
-											<select name="country" id="select2_sample4" class="form-control" required="required">
+											<select name="country" id="select2_sample4" class="form-control"
+												required="required">
 												<option value=""></option>
 												<option value="AF">Afghanistan</option>
 												<option value="AL">Albania</option>
@@ -290,8 +300,9 @@
 										</div>
 
 										<div class="margiv-top-10">
-											<input type="submit"  class="btn green-haze" value="Save Changes" id="updateuser" />
-												<a href="/dashboard" class="btn default">
+											<input type="submit" class="btn green-haze" value="Save Changes"
+												id="updateuser" />
+											<a href="/dashboard" class="btn default">
 												Cancel </a>
 										</div>
 									</form>
@@ -300,22 +311,34 @@
 
 								<!-- CHANGE PASSWORD TAB -->
 								<div class="tab-pane" id="tab_1_3">
-									<form action="#" id="changepasss-form">
+									<form id="changepasss-form">
+										<div class="alert alert-danger display-hide">
+											<button class="close" data-close="alert"></button>
+											You have some form errors. Please check below.
+										</div>
+										<div class="alert alert-success display-hide">
+											<button class="close" data-close="alert"></button>
+											Your form validation is successful!
+										</div>
 										<div class="form-group">
 											<label class="control-label">Current Password</label>
-											<input id="password" type="password" class="form-control" required="required"/>
+											<input id="password" name="password" type="password" class="form-control"
+												required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label">New Password</label>
-											<input type="password" id="newpassword" class="form-control" required="required"/>
+											<input type="password" name="newpassword" id="newpassword"
+												class="form-control" required="required" />
 										</div>
 										<div class="form-group">
 											<label class="control-label">Re-type New Password</label>
-											<input type="password" id="confirmpassword" class="form-control" required="required" />
+											<input type="password" id="confirmpassword" class="form-control"
+												name="confirmpassword" required="required" />
 										</div>
 										<div class="margin-top-10">
-											<input type="submit"  class="btn green-haze" value="Change Password" id="changpass" />
-											<a href="/profile"  class="btn default">Cancel</a>
+											<input type="submit" class="btn green-haze" value="Change Password"
+												id="changpass" />
+											<a href="/profile" class="btn default">Cancel</a>
 										</div>
 									</form>
 								</div>

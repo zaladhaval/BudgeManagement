@@ -91,21 +91,24 @@
 												<i class="fa fa-globe"></i>Expenses Details
 											</div>
 											<div class="actions">
-												<div class="btn-group btn-group-devided" data-toggle="buttons" id="expenceduration">
+												<div class="btn-group btn-group-devided" data-toggle="buttons"
+													id="expenceduration">
 													<label onclick="daydurationexp('alltimeex')"
 														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-														<input type="radio" name="options" class="toggle" value="alltimeex"
-															id="alltimeex" >All</label>
+														<input type="radio" name="options" class="toggle"
+															value="alltimeex" id="alltimeex">All</label>
 
-													<label onclick="daydurationexp('todayex')" class="btn btn-transparent grey-salsa btn-circle btn-sm ">
-														<input type="radio" name="options" class="toggle"  value="todayex"
-															id="todayex">Today</label>
+													<label onclick="daydurationexp('todayex')"
+														class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle"
+															value="todayex" id="todayex">Today</label>
 
-													<label onclick="daydurationexp('weekex')" class="btn btn-transparent grey-salsa btn-circle btn-sm">
+													<label onclick="daydurationexp('weekex')"
+														class="btn btn-transparent grey-salsa btn-circle btn-sm">
 														<input type="radio" name="options" class="toggle" value="weekex"
 															id="weekex">Week</label>
 												</div>
-												
+
 											</div>
 										</div>
 										<div class="portlet-body">
@@ -145,18 +148,21 @@
 												<i class="fa fa-globe"></i>Income Details
 											</div>
 											<div class="actions">
-												<div class="btn-group btn-group-devided" data-toggle="buttons" id="incomeduration">
+												<div class="btn-group btn-group-devided" data-toggle="buttons"
+													id="incomeduration">
 													<label onclick="daydurationinc('alltimein')"
 														class="btn btn-transparent grey-salsa btn-circle btn-sm active">
-														<input type="radio" name="options" class="toggle" value="alltimein"
-															id="alltimein">All</label>
+														<input type="radio" name="options" class="toggle"
+															value="alltimein" id="alltimein">All</label>
 
-													<label onclick="daydurationinc('todayin')" class="btn btn-transparent grey-salsa btn-circle btn-sm ">
-														<input type="radio" name="options" class="toggle" value="todayin"
-															id="todayin">Today</label>
+													<label onclick="daydurationinc('todayin')"
+														class="btn btn-transparent grey-salsa btn-circle btn-sm ">
+														<input type="radio" name="options" class="toggle"
+															value="todayin" id="todayin">Today</label>
 
-													<label onclick="daydurationinc('weekin')" class="btn btn-transparent grey-salsa btn-circle btn-sm">
-														<input type="radio" name="options" class="toggle"  value="weekin"
+													<label onclick="daydurationinc('weekin')"
+														class="btn btn-transparent grey-salsa btn-circle btn-sm">
+														<input type="radio" name="options" class="toggle" value="weekin"
 															id="weekin">Week</label>
 												</div>
 											</div>

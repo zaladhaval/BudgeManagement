@@ -22,7 +22,7 @@
 		<%@ include file="include/header.jsp" %>
 		<!-- END HEADER INNER -->
 
- 
+
 	</div>
 	<!-- END HEADER -->
 	<div class="clearfix">
@@ -64,7 +64,7 @@
 			Metronic.init(); // init metronic core components
 			Layout.init(); // init current layout
 			Login.init();
-			Demo.init(); 
+			Demo.init();
 			UIBlockUI.init();
 			UIToastr.init();
 			Index.init(); // init index page

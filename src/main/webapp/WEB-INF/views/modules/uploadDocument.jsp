@@ -10,7 +10,8 @@
 			</div>
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
-				<form id="upload-doc" class="form-horizontal" action="/uploadDocument/uploaddoc" method="post" enctype="multipart/form-data">
+				<form id="upload-doc" class="form-horizontal" action="/uploadDocument/uploaddoc" method="post"
+					enctype="multipart/form-data">
 					<div class="form-body">
 						<div class="alert alert-danger display-hide">
 							<button class="close" data-close="alert"></button>

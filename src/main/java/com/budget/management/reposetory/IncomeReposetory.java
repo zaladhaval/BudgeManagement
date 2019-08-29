@@ -23,4 +23,6 @@ public interface IncomeReposetory extends JpaRepository<IncomeMetaModel, Integer
 
 	@Query("SELECT x.date FROM IncomeMetaModel x WHERE x.userid = ?1 GROUP BY x.date")
 	public List<String> getgroup(String userid);
+	
+	public IncomeMetaModel findBytoken(String token);
 }

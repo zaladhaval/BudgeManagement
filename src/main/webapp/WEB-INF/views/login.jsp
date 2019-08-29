@@ -7,9 +7,7 @@
 <!-- BEGIN HEAD -->
 
 <head>
-
 	<title>Login</title>
-
 	<%@ include file="include/style.jsp" %>
 	<link rel="shortcut icon" href="favicon.ico" />
 </head>

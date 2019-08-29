@@ -82,8 +82,8 @@ function updatedashboard(id){
 				data: "id",
 				mRender: function (data, type, row) {
 					var str;
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="getinst(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
-							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>';
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="editexp(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedata(' + "'" + row.token + "'" +','+"'"+"E"+"'"+')" class="fa fa-trash"></i>';
 
 					return str;
 
@@ -158,8 +158,8 @@ function updatedashboard(id){
 				mRender: function (data, type, row) {
 					var str;
 					
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="getinst(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
-							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deleteUser(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>';
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="editinc(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedata(' + "'" + row.token + "'" +','+"'"+"I"+"'"+')" class="fa fa-trash"></i>';
 
 					return str;
 
@@ -175,11 +175,17 @@ function updatedashboard(id){
       list_refresh = function (url)
       {
     	  oTable.ajax.url(url).load();
-    	  oTable.ajax.reload(null, false);
+    	 
       };
       list_refresh1 = function (url)
       {
     	  oTable1.ajax.url( url ).load();
+    	
+      };
+      
+      list_refresh_only = function ()
+      {
+    	  oTable.ajax.reload(null, false);
     	  oTable1.ajax.reload(null, false);
       };
      
@@ -280,8 +286,8 @@ d=$('#dashboard-action li label .active').val();
 	  case 'todayex':
 		  var today = new Date();
 		  var dd = today.getDate();
-		  var mm = today.getMonth()+1; //January is 0!
-		  var yyyy = today.getFullYear();
+		  /*var mm = today.getMonth()+1; //January is 0!
+		  var yyyy = today.getFullYear();*/
 		  d=d+'-'+dd;
 		  list_refresh( "expense/getallexpence?date="+d );
 		  break;
@@ -305,8 +311,6 @@ function daydurationinc(id) {
 	  case 'todayin':
 		  var today = new Date();
 		  var dd = today.getDate();
-		  var mm = today.getMonth()+1; //January is 0!
-		  var yyyy = today.getFullYear();
 		  d=d+'-'+dd;
 		  list_refresh1("expense/getallincome?date="+d);
 		  break;
@@ -316,4 +320,66 @@ function daydurationinc(id) {
 	  default:
 	    // code block
 	}
+}
+
+
+function deletedata(token,type){
+	swal({
+		  title: "Are you sure?",
+		  text: "You will not be able to recover this data!",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonClass: "btn-danger",
+		  confirmButtonText: "Yes, delete it!",
+		  cancelButtonText: "No, cancel",
+		  closeOnConfirm: false,
+		  closeOnCancel: false
+		},
+		function(isConfirm) {
+		  if (isConfirm) {
+		    swal("Deleted!", "Your data has been deleted.", "success");
+		    return deleteExpOrInc(token,type);
+		  } else {
+		    swal("Cancelled", "Operation Cancled :)", "error");
+		  }
+		});
+	
+}
+
+function deleteExpOrInc(token,type) {
+	
+	$.ajax({
+		type: 'Post',
+		url: "expense/delete?token="+token+"&type="+type,
+		dataType: "JSON",
+		async: false,
+		processData: false,
+		cache: false,
+		contentType: "application/json",
+		beforeSend : function() {
+			Metronic.blockUI({
+				boxed: true
+			});
+		},
+		success : function(data) {
+			if (data.status) {
+				success(data.message);
+				 counterdata();
+				 list_refresh_only();
+				Metronic.unblockUI();
+			} else if (!data.status) {
+				error(data.message);
+				Metronic.unblockUI();
+			} else {
+				error(data.message);
+				Metronic.unblockUI();
+			}
+
+		},
+		error : function() {
+			error("Problem occures during process");
+			Metronic.unblockUI();
+		}
+	});
+	
 }
