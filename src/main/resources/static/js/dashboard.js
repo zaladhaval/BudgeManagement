@@ -82,7 +82,7 @@ function updatedashboard(id){
 				data: "id",
 				mRender: function (data, type, row) {
 					var str;
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="editexp(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="edit(' + "'" + row.token + "'" +','+"'"+"E"+"'"+')" class="fa fa-edit"></i>' +
 							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedata(' + "'" + row.token + "'" +','+"'"+"E"+"'"+')" class="fa fa-trash"></i>';
 
 					return str;
@@ -158,7 +158,7 @@ function updatedashboard(id){
 				mRender: function (data, type, row) {
 					var str;
 					
-						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="editinc(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
+						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;"  onclick="edit(' + "'" + row.token + "'" +','+"'"+"I"+"'"+')" class="fa fa-edit"></i>' +
 							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedata(' + "'" + row.token + "'" +','+"'"+"I"+"'"+')" class="fa fa-trash"></i>';
 
 					return str;
@@ -298,7 +298,6 @@ d=$('#dashboard-action li label .active').val();
 	    // code block
 	}
 	
-	
 }
 
 function daydurationinc(id) {
@@ -366,6 +365,45 @@ function deleteExpOrInc(token,type) {
 				success(data.message);
 				 counterdata();
 				 list_refresh_only();
+				Metronic.unblockUI();
+			} else if (!data.status) {
+				error(data.message);
+				Metronic.unblockUI();
+			} else {
+				error(data.message);
+				Metronic.unblockUI();
+			}
+
+		},
+		error : function() {
+			error("Problem occures during process");
+			Metronic.unblockUI();
+		}
+	});
+	
+}
+
+function edit(token,type) {
+	
+	$.ajax({
+		type: 'POST',
+		url: "expense/getbyid?token="+token+"&type="+type,
+		dataType: "JSON",
+		async: false,
+		processData: false,
+		cache: false,
+		contentType: "application/json",
+		beforeSend : function() {
+			Metronic.blockUI({
+				boxed: true
+			});
+		},
+		success : function(data) {
+			if (data.status) {
+				success(data.message);
+				
+				 var url = "/expense?amount="+data.response['amount']+"&type="+data.response['type']+"&date="+data.response['date']+"&description="+data.response['description']+"&token="+data.response['token'];
+				 window.location.href = url;
 				Metronic.unblockUI();
 			} else if (!data.status) {
 				error(data.message);

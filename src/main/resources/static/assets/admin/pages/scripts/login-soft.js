@@ -11,9 +11,6 @@ var Login = function () {
 				},
 				password: {
 					required: true
-				},
-				remember: {
-					required: false
 				}
 			},
 
@@ -35,10 +32,7 @@ var Login = function () {
 			highlight: function (element) { // hightlight error inputs
 				$(element)
 					.closest('.form-group').addClass('has-error'); // set error
-				// class to
-				// the
-				// control
-				// group
+				
 			},
 
 			success: function (label) {
@@ -51,7 +45,7 @@ var Login = function () {
 			},
 
 			submitHandler: function (form) {
-				form.submit();
+				//form.submit();
 			}
 		});
 
@@ -109,7 +103,7 @@ var Login = function () {
 			},
 
 			submitHandler: function (form) {
-				form.submit();
+				//form.submit();
 			}
 		});
 
@@ -141,7 +135,6 @@ var Login = function () {
 			return "<img class='flag' src='resources/assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
 		}
 
-
 		$("#select2_sample4").select2({
 			placeholder: '<i class="fa fa-map-marker"></i>&nbsp;Select a Country',
 			allowClear: true,
@@ -152,12 +145,9 @@ var Login = function () {
 			}
 		});
 
-
 		$('#select2_sample4').change(function () {
 			$('.register-form').validate().element($(this)); 
 		});
-
-
 
 		$('.register-form').validate({
 			errorElement: 'span', // default input error message container
@@ -230,7 +220,7 @@ var Login = function () {
 			},
 
 			submitHandler: function (form) {
-				//form.submit();
+				form.submit();
 			}
 		});
 
@@ -282,7 +272,7 @@ jQuery(document).ready(function () {
 		u = chechemail("/validtion/username?username=" + $("#username").val(), "#username-unique");
 		
 	});
-
+	
 	$("#register-submit-btn").click(function () {
 		if (u.responseJSON.status && c.responseJSON.status && e.responseJSON.status) {
 			var form = {
@@ -337,6 +327,50 @@ jQuery(document).ready(function () {
 			error("Enter valid data");
 		}
 	});
+	
+	
+	$("#login-btn").click(function () {
+		if ($("#loginuser").val()!='' && $("loginpass").val()!='') {
+				$.ajax({
+					type: 'POST',
+					url: "/authenticate?username="+$("#loginuser").val()+"&password="+$("#loginpass").val(),
+					dataType: "JSON",
+					async: true,
+					processData: false,
+					cache: false,
+					contentType: "application/json",
+					beforeSend: function () {
+						Metronic.blockUI({
+							boxed: true
+						});
+					},
+					success: function (data) {
+						if (data.status) {
+							success(data.message);
+							Metronic.unblockUI();
+							 $(".login-form").trigger("reset");
+							 window.location.href = "/dashboard";
+						} else if (!data.status) {
+							error(data.message);
+							Metronic.unblockUI();
+							 window.location.href = "/";
+							 $(".login-form").trigger("reset");
+						} else {
+							window.location.href = "/";
+							error("Problem occures during process");
+							 $(".login-form").trigger("reset");
+							Metronic.unblockUI();
+						}
+
+					},
+					error: function () {
+						window.location.href = "/";
+						 $(".login-form").trigger("reset");
+						Metronic.unblockUI();
+					}
+				});
+			}
+		});
 });
 
 function chechemail(url, id) {

@@ -13,6 +13,7 @@
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
 				<form action="#" id="expence-form" class="form-horizontal">
+					<input type="hidden" name="token" id="token" />
 					<div class="form-body">
 						<div class="alert alert-danger display-hide">
 							<button class="close" data-close="alert"></button>
@@ -68,7 +69,8 @@
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" class="btn green" id="add-expence-btn">Submit</button>
-								<button type="button" class="btn default">Cancel</button>
+								<button type="submit" class="btn green" id="update-expence-btn">Update</button>
+								<button type="button" class="btn default" id="cancle-btn">Cancel</button>
 							</div>
 						</div>
 					</div>

@@ -12,7 +12,7 @@ public class Variables {
 
 	public static String errorMessage = "Some error has bean occure";
 	public static int successCode = 200;
-	public static int nodefoundCode = 404;
+	public static int notfoundCode = 404;
 	public static int serverErrorCode = 500;
 
 }

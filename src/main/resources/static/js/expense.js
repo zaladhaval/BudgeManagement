@@ -122,7 +122,12 @@ var FormValidation = function () {
 
 
 jQuery(document).ready(function() {
+	loadupdatedata();
 	FormValidation.init();
+	$("#cancle-btn").click(function() {
+		 window.location.href = "/dashboard";
+		
+	});
 	$("#add-expence-btn").click(function() {
 		var form = {
 				"amount": $("#amount").val(),
@@ -148,10 +153,54 @@ jQuery(document).ready(function() {
 			success : function(data) {
 				if (data.status) {
 					success(data.message);
-					location.reload();
-					//Metronic.unblockUI();
-					//$("#form_sample_3")[0].reset();
-					
+					 window.location.href = "/dashboard";
+					 Metronic.unblockUI();
+				} else if (!data.status) {
+					error(data.message);
+					Metronic.unblockUI();
+				} else {
+					error(data.message);
+					Metronic.unblockUI();
+				}
+
+			},
+			error : function() {
+				error("Problem occures during process");
+				Metronic.unblockUI();
+			}
+		});
+	}
+	});
+	
+	$("#update-expence-btn").click(function() {
+		var form = {
+				"token": $("#token").val(),
+				"amount": $("#amount").val(),
+				"type": $("#type").val(),
+				"date": $("#date").val(),
+				"description": $("#description").val()
+			};
+		if (form.amount!=''&&form.type!=''&&form.date!=''&&form.description!='') {
+		$.ajax({
+			type: 'POST',
+			url: "expense/update",
+			dataType: "JSON",
+			async: true,
+			data: JSON.stringify(form),
+			processData: false,
+			cache: false,
+			contentType: "application/json",
+			beforeSend : function() {
+				Metronic.blockUI({
+					boxed: true
+				});
+			},
+			success : function(data) {
+				if (data.status) {
+					success(data.message);
+					 $("#expence-form").trigger("reset");
+					 Metronic.unblockUI();
+					 window.location.href = "/dashboard";
 				} else if (!data.status) {
 					error(data.message);
 					Metronic.unblockUI();
@@ -169,3 +218,32 @@ jQuery(document).ready(function() {
 	}
 	});
 });
+
+function  loadupdatedata() {
+	var queryString = new Array();
+	
+	 if (queryString.length == 0) {
+         if (window.location.search.split('?').length > 1) {
+        	 $('#update-expence-btn').show();
+ 			$('#add-expence-btn').hide();
+             var params = window.location.search.split('?')[1].split('&');
+             for (var i = 0; i < params.length; i++) {
+                 var key = params[i].split('=')[0];
+                 var value = decodeURIComponent(params[i].split('=')[1]);
+                 queryString[key] = value;
+             }
+         }else {
+        	 $('#update-expence-btn').hide();
+  			$('#add-expence-btn').show();
+		}
+     }
+     if (queryString["amount"] != null && queryString["type"] != null && queryString["date"] != null&& queryString["description"] != null && queryString["token"]) {
+         $("#amount").val(queryString["amount"]);
+		 $("#type").val(queryString["type"]);
+		 var d=queryString["date"].split('-')[2]+'-'+queryString["date"].split('-')[1]+'-'+queryString["date"].split('-')[0];
+		 $("#date").val(d);
+		 $("#description").val(queryString["description"]);
+		 $("#token").val(queryString["token"]);
+     }
+	
+}

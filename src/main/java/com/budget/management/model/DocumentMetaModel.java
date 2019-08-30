@@ -69,5 +69,4 @@ public class DocumentMetaModel {
 	public void setTypeIcon(String typeIcon) {
 		this.typeIcon = typeIcon;
 	}
-	
 }

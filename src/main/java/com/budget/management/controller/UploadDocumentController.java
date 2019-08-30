@@ -56,7 +56,7 @@ public class UploadDocumentController {
 			}
 			String path = DirPath.setPath() + "/docs/" + session.getAttribute("token");
 
-			String filename = name + session.getAttribute("token") + "."
+			String filename = name +"-"+session.getAttribute("token")+"-"+randomToken.getToken(10) + "."
 					+ FilenameUtils.getExtension(file.getOriginalFilename());
 
 			filemanagement.uploadFile(file, path, filename);

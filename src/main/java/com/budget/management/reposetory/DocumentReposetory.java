@@ -9,5 +9,7 @@ import com.budget.management.model.DocumentMetaModel;
 public interface DocumentReposetory extends JpaRepository<DocumentMetaModel, Integer> {
 	
 	List<DocumentMetaModel> findByuserid(String usrid);
+	
+	DocumentMetaModel findBytoken(String  token);
 
 }

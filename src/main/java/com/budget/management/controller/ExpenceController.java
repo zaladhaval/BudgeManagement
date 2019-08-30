@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.budget.management.lib.LoginController;
+import com.budget.management.model.ExpIncUpdateModel;
 import com.budget.management.model.ExpenceIncomeDetailModel;
 import com.budget.management.model.ExpenceMetaModel;
 import com.budget.management.model.IncomeMetaModel;
@@ -161,7 +162,7 @@ public class ExpenceController {
 	}
 
 	@PostMapping("/delete")
-	public @ResponseBody Object demo(@RequestParam String token, String type, HttpServletResponse response,
+	public @ResponseBody Object delete(@RequestParam String token, String type, HttpServletResponse response,
 			HttpSession session) {
 		try {
 			if (!LoginController.userValidate(session)) {
@@ -182,4 +183,62 @@ public class ExpenceController {
 			return ResponseMessage.message(Variables.errorMessage, Variables.serverErrorCode, false);
 		}
 	}
+	
+	@PostMapping("/getbyid")
+	public @ResponseBody Object getbyid(@RequestParam String token, String type, HttpServletResponse response,
+			HttpSession session) {
+		try {
+			if (!LoginController.userValidate(session)) {
+				response.sendRedirect("/");
+				return null;
+			}
+			if (type.equals("I")) {
+				IncomeMetaModel incomeMetaModel = incomereposetory.findBytoken(token);
+				return ResponseMessage.message("Data found Successfully", Variables.successCode, true,incomeMetaModel);
+			} else {
+				ExpenceMetaModel expenceMetaModel = expenceReposetory.findBytoken(token);
+				return ResponseMessage.message("Data found Successfully", Variables.successCode, true,expenceMetaModel);
+			}
+
+		} catch (Exception e) {
+			return ResponseMessage.message(Variables.errorMessage, Variables.serverErrorCode, false);
+		}
+	}
+	
+	
+	@PostMapping("/update")
+	public @ResponseBody Object update(@RequestBody ExpIncUpdateModel expIncUpdateModel,
+			HttpServletResponse response, HttpSession session) {
+		try {
+			if (!LoginController.userValidate(session)) {
+				response.sendRedirect("/");
+				return null;
+			}
+			String[] formatedate=expIncUpdateModel.getDate().split("-");
+			String f=formatedate[2]+"-"+formatedate[1]+"-"+formatedate[0];
+			if (expIncUpdateModel.getType().equals("Expence")) {
+				ExpenceMetaModel expenceMetaModel = expenceReposetory.findBytoken(expIncUpdateModel.getToken());
+				expenceMetaModel.setAmount(expIncUpdateModel.getAmount());
+				expenceMetaModel.setDate(f);
+				expenceMetaModel.setUserid(session.getAttribute("token").toString());
+				expenceMetaModel.setDescription(expIncUpdateModel.getDescription());
+				expenceMetaModel.setType(expIncUpdateModel.getType());
+				expenceReposetory.save(expenceMetaModel);
+				return ResponseMessage.message("Expence Updated Successfully", Variables.successCode, true);
+			} else {
+				IncomeMetaModel incomeMetaModel =incomereposetory.findBytoken(expIncUpdateModel.getToken());
+				incomeMetaModel.setAmount(expIncUpdateModel.getAmount());
+				incomeMetaModel.setUserid(session.getAttribute("token").toString());
+				incomeMetaModel.setDate(f);
+				incomeMetaModel.setDescription(expIncUpdateModel.getDescription());
+				incomeMetaModel.setType(expIncUpdateModel.getType());
+				incomereposetory.save(incomeMetaModel);
+				return ResponseMessage.message("Expence Updated Successfully", Variables.successCode, true);
+			}
+
+		} catch (Exception e) {
+			return ResponseMessage.message(Variables.errorMessage, Variables.serverErrorCode, false);
+		}
+	}
+	
 }

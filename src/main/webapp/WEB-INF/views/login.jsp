@@ -30,13 +30,14 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content" style=" background-color: inherit">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="login-form" action="/auth/authenticate" method="post">
+		<form class="login-form" role="form">
 			<h3 class="form-title">Login to your account</h3>
+			<span style="color: red;">${error}</span><br />
 			<div class="alert alert-danger display-hide">
 				<button class="close" data-close="alert"></button>
 				<span>
 					Enter any username and password. </span>
-				<span>${error}</span>
+				
 			</div>
 			<div class="form-group">
 				<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
@@ -44,7 +45,7 @@
 				<div class="input-icon">
 					<i class="fa fa-user"></i>
 					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username"
-						name="username" />
+						name="username" id="loginuser" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -52,11 +53,11 @@
 				<div class="input-icon">
 					<i class="fa fa-lock"></i>
 					<input class="form-control placeholder-no-fix" type="password" autocomplete="off"
-						placeholder="Password" name="password" />
+						placeholder="Password" name="password" id="loginpass"  />
 				</div>
 			</div>
 			<div class="form-actions">
-				<button type="submit" class="btn blue pull-right">
+				<button type="submit" class="btn blue pull-right" id="login-btn">
 					Login <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>
@@ -77,7 +78,7 @@
 		</form>
 		<!-- END LOGIN FORM -->
 		<!-- BEGIN FORGOT PASSWORD FORM -->
-		<form class="forget-form" action="index.html" method="post">
+		<form class="forget-form" >
 			<h3>Forget Password ?</h3>
 			<p>
 				Enter your e-mail address below to reset your password.
@@ -86,13 +87,13 @@
 				<div class="input-icon">
 					<i class="fa fa-envelope"></i>
 					<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email"
-						name="email" />
+						name="email" id="forgetpassemail" />
 				</div>
 			</div>
 			<div class="form-actions">
 				<button type="button" id="back-btn" class="btn">
 					<i class="m-icon-swapleft"></i> Back </button>
-				<button type="submit" class="btn blue pull-right">
+				<button type="submit" class="btn blue pull-right" id="forget-pass-btn">
 					Submit <i class="m-icon-swapright m-icon-white"></i>
 				</button>
 			</div>

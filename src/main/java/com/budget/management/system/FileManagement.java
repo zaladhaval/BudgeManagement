@@ -86,8 +86,6 @@ public class FileManagement {
 			map.put("fileType", file.getContentType());
 			map.put("size", file.getSize());
 			map.put("path", targetLocation.getParent());
-			System.out.println(targetLocation.getParent());
-
 			return map;
 		} catch (IOException ex) {
 			throw new FileStorageException1("Could not store file " + fileName + ". Please try again!", ex);

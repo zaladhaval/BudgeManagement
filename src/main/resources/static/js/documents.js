@@ -3,7 +3,7 @@
 
        /* Fixed header extension: http://datatables.net/extensions/keytable/ */
 
-       var oTable = table.dataTable({
+       var oTable = table.DataTable({
     	   "processing": true, // Feature control the processing indicator.
       		"serverSide": false, // Feature control DataTables' server-side
            // Internationalisation. For more info refer to http://datatables.net/manual/i18n
@@ -69,8 +69,7 @@
     				mRender: function (data, type, row) {
     					var str;
     					
-    						str = '<i style="radius= 50%; font-size: 20px; color: royalblue;" onclick="editdoc(' + "'" + row.token + "'" + ')" class="fa fa-edit"></i>' +
-    							'&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedoc(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>'+
+    						str ='&nbsp &nbsp<i style="radius= 30%; font-size: 20px; color: red;" onclick="deletedoc(' + "'" + row.token + "'" + ')" class="fa fa-trash"></i>'+
     							'&nbsp &nbsp<a  href="document/download?name=' + "" + row.nameOfDocument + "" + '">' +"<i style='radius= 30%; font-size: 20px; color: black;' class='fa fa-download'></i></a>";
 
     					return str;
@@ -84,34 +83,72 @@
 
        var tableWrapper = $('#sample_6_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
        tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown
+     
+       list_refresh = function ()
+       {
+     	  oTable.ajax.reload(null, false);
+     	 
+       };
    });
 
-   //	var form=new FormData();
-   //form.append("token",token);
-   function downloaddoc(name)
+
+   function deletedoc(token){
+   	swal({
+   		  title: "Are you sure?",
+   		  text: "You will not be able to recover this data!",
+   		  type: "warning",
+   		  showCancelButton: true,
+   		  confirmButtonClass: "btn-danger",
+   		  confirmButtonText: "Yes, delete it!",
+   		  cancelButtonText: "No, cancel",
+   		  closeOnConfirm: false,
+   		  closeOnCancel: false
+   		},
+   		function(isConfirm) {
+   		  if (isConfirm) {
+   		    swal("Deleted!", "Your data has been deleted.", "success");
+   		    return deleted(token);
+   		  } else {
+   		    swal("Cancelled", "Operation Cancled :)", "error");
+   		  }
+   		});
+   	
+   }
+
+   function deleted(token)
    {
-   	var form=new FormData();
-       form.append("name",name);
-       console.log(form);
+  
        $.ajax({
        	 type: 'POST',
-   	        url: "document/download",
+   	        url: "document/delete?token="+token,
    	        dataType: "JSON",
    	        async: true,
-   	        data: form,
    	        processData: false,
    	        cache: false,
    	        contentType: false,
    	        beforeSend: function () {},
-   	       success: function (data)
-   	       {
-   	    	   success("Status updated successfully!!");
-   	    	Metronic.unblockUI();
-   	       },
-   	       error: function ()
-   	       {
-   	    	   error("Problem occures during process");
-   	    	Metronic.unblockUI();
-   	       }
+   	        beforeSend : function() {
+				Metronic.blockUI({
+					boxed: true
+				});
+   	        },
+			success : function(data) {
+			if (data.status) {
+				success(data.message);
+				list_refresh();
+				 Metronic.unblockUI();
+			} else if (!data.status) {
+				error(data.message);
+				Metronic.unblockUI();
+			} else {
+				error(data.message);
+				Metronic.unblockUI();
+			}
+
+			},
+			error : function() {
+				error("Problem occures during process");
+				Metronic.unblockUI();
+			}
        });
-   };
+   }

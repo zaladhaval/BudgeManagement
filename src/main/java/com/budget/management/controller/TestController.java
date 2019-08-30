@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.budget.management.reposetory.DocumentReposetory;
 import com.budget.management.reposetory.ExpenceReposetory;
 import com.budget.management.reposetory.IncomeReposetory;
 
@@ -29,6 +30,9 @@ public class TestController {
 
 	@Autowired
 	IncomeReposetory incomeReposetory;
+	
+	@Autowired
+	DocumentReposetory documentReposetory;
 
 	@GetMapping("/testsum")
 	public Object name(HttpSession session) {
@@ -82,4 +86,6 @@ public class TestController {
 		
 		return expenceReposetory.findByDateIn(dates);
 	}
+	
+	
 }
